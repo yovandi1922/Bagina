@@ -6,7 +6,7 @@
    ========================================================= */
 
 const CONFIG = {
-  whatsappNumber: "6281234567890",
+  whatsappNumber: "081111851191",
   storeName: "Bagina",
 };
 
