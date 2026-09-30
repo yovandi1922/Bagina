@@ -6,7 +6,7 @@
    ========================================================= */
 
 const CONFIG = {
-  whatsappNumber: "6281111851191",
+  whatsappNumber: "6287891860447",
   storeName: "Bagina",
 };
 
@@ -159,9 +159,21 @@ const PRODUCT_DATA = {
       // Mobile Legends
       { group: "Mobile Legends", name: "4000 Diamonds", price: "Rp 1.000.000" },
       { group: "Mobile Legends", name: "8000 Diamonds", price: "Rp 2.000.000" },
-      { group: "Mobile Legends", name: "12000 Diamonds", price: "Rp 3.000.000" },
-      { group: "Mobile Legends", name: "20000 Diamonds", price: "Rp 5.000.000" },
-      { group: "Mobile Legends", name: "40000 Diamonds", price: "Rp 10.000.000" },
+      {
+        group: "Mobile Legends",
+        name: "12000 Diamonds",
+        price: "Rp 3.000.000",
+      },
+      {
+        group: "Mobile Legends",
+        name: "20000 Diamonds",
+        price: "Rp 5.000.000",
+      },
+      {
+        group: "Mobile Legends",
+        name: "40000 Diamonds",
+        price: "Rp 10.000.000",
+      },
       // Free Fire
       { group: "Free Fire", name: "7000 Diamonds", price: "Rp 1.000.000" },
       { group: "Free Fire", name: "14000 Diamonds", price: "Rp 2.000.000" },
@@ -175,11 +187,31 @@ const PRODUCT_DATA = {
       { group: "PUBG Mobile", name: "20000 UC", price: "Rp 5.000.000" },
       { group: "PUBG Mobile", name: "40000 UC", price: "Rp 10.000.000" },
       // Genshin Impact
-      { group: "Genshin Impact", name: "4000 Genesis Crystal", price: "Rp 1.000.000" },
-      { group: "Genshin Impact", name: "8000 Genesis Crystal", price: "Rp 2.000.000" },
-      { group: "Genshin Impact", name: "12000 Genesis Crystal", price: "Rp 3.000.000" },
-      { group: "Genshin Impact", name: "20000 Genesis Crystal", price: "Rp 5.000.000" },
-      { group: "Genshin Impact", name: "40000 Genesis Crystal", price: "Rp 10.000.000" },
+      {
+        group: "Genshin Impact",
+        name: "4000 Genesis Crystal",
+        price: "Rp 1.000.000",
+      },
+      {
+        group: "Genshin Impact",
+        name: "8000 Genesis Crystal",
+        price: "Rp 2.000.000",
+      },
+      {
+        group: "Genshin Impact",
+        name: "12000 Genesis Crystal",
+        price: "Rp 3.000.000",
+      },
+      {
+        group: "Genshin Impact",
+        name: "20000 Genesis Crystal",
+        price: "Rp 5.000.000",
+      },
+      {
+        group: "Genshin Impact",
+        name: "40000 Genesis Crystal",
+        price: "Rp 10.000.000",
+      },
     ],
   },
   voucher: {
@@ -188,16 +220,44 @@ const PRODUCT_DATA = {
     items: [
       { group: "Google Play", name: "Gift Card Rp 10.000", price: "Rp 11.000" },
       { group: "Google Play", name: "Gift Card Rp 50.000", price: "Rp 52.500" },
-      { group: "Google Play", name: "Gift Card Rp 100.000", price: "Rp 103.000" },
+      {
+        group: "Google Play",
+        name: "Gift Card Rp 100.000",
+        price: "Rp 103.000",
+      },
       { group: "Steam Wallet", name: "Kode Rp 45.000", price: "Rp 47.000" },
       { group: "Steam Wallet", name: "Kode Rp 90.000", price: "Rp 92.500" },
       { group: "Steam Wallet", name: "Kode Rp 180.000", price: "Rp 183.000" },
-      { group: "PlayStation Store", name: "Voucher Rp 90.000", price: "Rp 93.000" },
-      { group: "PlayStation Store", name: "Voucher Rp 180.000", price: "Rp 184.000" },
-      { group: "PlayStation Store", name: "Voucher Rp 450.000", price: "Rp 455.000" },
-      { group: "iTunes & App Store", name: "Gift Card Rp 60.000", price: "Rp 62.000" },
-      { group: "iTunes & App Store", name: "Gift Card Rp 120.000", price: "Rp 123.000" },
-      { group: "iTunes & App Store", name: "Gift Card Rp 300.000", price: "Rp 305.000" },
+      {
+        group: "PlayStation Store",
+        name: "Voucher Rp 90.000",
+        price: "Rp 93.000",
+      },
+      {
+        group: "PlayStation Store",
+        name: "Voucher Rp 180.000",
+        price: "Rp 184.000",
+      },
+      {
+        group: "PlayStation Store",
+        name: "Voucher Rp 450.000",
+        price: "Rp 455.000",
+      },
+      {
+        group: "iTunes & App Store",
+        name: "Gift Card Rp 60.000",
+        price: "Rp 62.000",
+      },
+      {
+        group: "iTunes & App Store",
+        name: "Gift Card Rp 120.000",
+        price: "Rp 123.000",
+      },
+      {
+        group: "iTunes & App Store",
+        name: "Gift Card Rp 300.000",
+        price: "Rp 305.000",
+      },
     ],
   },
   software: {
@@ -450,10 +510,10 @@ function initProductTabs() {
             </div>
             <h4>${item.name}</h4>
             <div class="item-desc">${sub}</div>
-            <div class="item-price">${item.price}${item.priceNote ? `<span>${item.priceNote}</span>` : ''}</div>
-            ${hasFeatures ? `<ul class="kasir-features">${item.features.map((f) => `<li>${CHECK_ICON}<span>${f}</span></li>`).join("")}</ul>` : ''}
-            <button class="btn btn-accent btn-block" data-order="${sub} — ${item.name}" data-price="${item.price}${item.priceNote ? ' ' + item.priceNote : ''}">
-              ${hasFeatures ? 'Pesan via WhatsApp' : 'Pesan Sekarang'}
+            <div class="item-price">${item.price}${item.priceNote ? `<span>${item.priceNote}</span>` : ""}</div>
+            ${hasFeatures ? `<ul class="kasir-features">${item.features.map((f) => `<li>${CHECK_ICON}<span>${f}</span></li>`).join("")}</ul>` : ""}
+            <button class="btn btn-accent btn-block" data-order="${sub} — ${item.name}" data-price="${item.price}${item.priceNote ? " " + item.priceNote : ""}">
+              ${hasFeatures ? "Pesan via WhatsApp" : "Pesan Sekarang"}
             </button>
           </div>`;
       });
