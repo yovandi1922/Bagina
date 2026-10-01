@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bagina — Top Up Game, Voucher & Aplikasi Kasir</title>
+    <title>Bagina — Grosir Pakaian Pria & Wanita</title>
     <meta
       name="description"
-      content="Bagina menyediakan top up game, top up voucher digital, dan aplikasi kasir untuk usahamu. Pesan langsung via WhatsApp."
+      content="Bagina menyediakan pakaian pria dan wanita dengan harga grosir untuk reseller dan toko. Pesan langsung via WhatsApp."
     />
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -56,17 +56,15 @@
         min-height: 100svh;
         display: flex;
         align-items: center;
-        /* GANTI 'nama-gambar-anda.jpg' dengan nama file gambar yang Anda simpan di luar folder */
-        background: #222
-          url("banner.jpg")
-          center / cover no-repeat;
+        /* GANTI 'banner.jpg' dengan nama file gambar Anda */
+        background: #222 url("banner.jpg") center / cover no-repeat;
         color: #fff;
       }
       .kain-banner::before {
         content: "";
         position: absolute;
         inset: 0;
-        background: rgba(0, 0, 0, 0.5);
+        background: rgba(0, 0, 0, 0.55);
       }
       .kain-banner .container {
         position: relative;
@@ -85,6 +83,34 @@
         margin: 0 0 24px;
         line-height: 1.6;
         color: #eee;
+      }
+
+      /* ALAMAT — di bawah tombol Tanya Harga Grosir */
+      .kain-address {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        margin: 20px 0 0;
+        padding: 12px 16px;
+        border-left: 3px solid #ffc93c;
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+        border-radius: 0 10px 10px 0;
+        color: #f1f1f1;
+        font-size: 14px;
+        line-height: 1.55;
+        max-width: 460px;
+      }
+      .kain-address svg {
+        width: 18px;
+        height: 18px;
+        flex-shrink: 0;
+        margin-top: 2px;
+        color: #ffc93c;
+      }
+      .kain-address span {
+        display: block;
       }
 
       @media (max-width: 800px) {
@@ -114,6 +140,17 @@
           font-size: 15px;
           margin-bottom: 20px;
         }
+        .kain-address {
+          font-size: 13px;
+          padding: 10px 12px;
+          margin-top: 16px;
+          max-width: 100%;
+          border-radius: 10px;
+        }
+        .kain-address svg {
+          width: 16px;
+          height: 16px;
+        }
         .kain-inner .btn {
           display: block;
           width: 100%;
@@ -129,9 +166,29 @@
             Tersedia berbagai jenis kain dengan harga grosir. Bisa beli per
             meter atau per roll, kirim ke seluruh Indonesia.
           </p>
+
           <a href="#" data-wa-general class="btn btn-accent"
             >Tanya Harga Grosir</a
           >
+
+          <!-- ALAMAT DI BAWAH TOMBOL -->
+          <div class="kain-address">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            <span>
+              Jl. Adi Sumarmo, Pulosari, Malangjiwan, Kec. Colomadu, Kabupaten
+              Karanganyar, Jawa Tengah 57177
+            </span>
+          </div>
         </div>
       </div>
     </section>
@@ -151,13 +208,16 @@
               <circle cx="12" cy="12" r="10"></circle>
               <polyline points="12 6 12 12 16 14"></polyline>
             </svg>
-            Proses instan, chat langsung
+            Min. order 12 pcs, boleh campur model
           </span>
-          <h1>Top up cepat, kasir beres, semua dalam satu obrolan.</h1>
+          <h1>
+            Stok baju pria &amp; wanita untuk dijual lagi, harga langsung
+            grosir.
+          </h1>
           <p class="lead">
-            Bagina melayani top up game, voucher digital, dan aplikasi kasir
-            untuk usahamu. Pilih produk, chat kami di WhatsApp, transaksi
-            selesai — nggak pakai ribet.
+            Bagina melayani kulakan pakaian untuk reseller, dropshipper, dan
+            pemilik toko. Pilih model, chat kami di WhatsApp, pesanan diproses —
+            nggak pakai ribet.
           </p>
           <div class="hero-cta">
             <a href="produk.html" class="btn btn-primary">Lihat Semua Produk</a>
@@ -167,10 +227,11 @@
           </div>
           <div class="hero-meta">
             <div>
-              <strong>3–5 menit</strong><span>rata-rata waktu proses</span>
+              <strong>Mulai 12 pcs</strong><span>boleh campur model</span>
             </div>
             <div>
-              <strong>4 kategori</strong><span>game, voucher & Software</span>
+              <strong>3 kategori</strong
+              ><span>pria, wanita &amp; paket reseller</span>
             </div>
             <div>
               <strong>07.00–24.00</strong><span>siap balas chat tiap hari</span>
@@ -184,96 +245,33 @@
             width="100%"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <rect
-              x="70"
-              y="18"
-              width="220"
-              height="330"
-              rx="30"
-              fill="#FFFFFF"
-              stroke="#E5E2F7"
-              stroke-width="2"
-            />
-            <rect
-              x="92"
-              y="46"
-              width="176"
-              height="230"
-              rx="14"
-              fill="#F1EFFE"
-            />
-            <circle
-              cx="180"
-              cy="316"
-              r="14"
-              fill="#EEECFD"
-              stroke="#4F46E5"
-              stroke-width="2"
-            />
-            <g class="float-slow">
-              <rect
-                x="108"
-                y="62"
-                width="70"
-                height="70"
-                rx="16"
-                fill="#4F46E5"
-              />
-              <path
-                d="M130 96h26M143 83v26"
-                stroke="#fff"
-                stroke-width="5"
-                stroke-linecap="round"
-              />
-            </g>
-            <g class="float-slow delay">
-              <rect
-                x="188"
-                y="150"
-                width="70"
-                height="70"
-                rx="16"
-                fill="#FF6B35"
-              />
-              <path
-                d="M203 185h40M203 172h28M203 198h20"
-                stroke="#fff"
-                stroke-width="5"
-                stroke-linecap="round"
-              />
-            </g>
-            <g class="float-slow">
-              <rect
-                x="108"
-                y="150"
-                width="70"
-                height="70"
-                rx="16"
-                fill="#06B58A"
-              />
-              <path d="M123 183h40l-6 20h-28z" fill="#fff" />
-              <circle cx="130" cy="207" r="4" fill="#fff" />
-              <circle cx="156" cy="207" r="4" fill="#fff" />
-            </g>
-            <g class="float-slow delay">
-              <rect
-                x="188"
-                y="62"
-                width="70"
-                height="70"
-                rx="16"
-                fill="#FFC93C"
-              />
-              <path d="M208 92h30v20h-30z" fill="#fff" />
-              <path
-                d="M215 92v-6a8 8 0 0 1 16 0v6"
-                stroke="#fff"
-                stroke-width="5"
-                fill="none"
-              />
-            </g>
             <circle cx="343" cy="70" r="30" fill="#EEECFD" />
-            <circle cx="30" cy="300" r="22" fill="#FFEDE3" />
+            <circle cx="40" cy="320" r="22" fill="#FFEDE3" />
+            <rect x="40" y="30" width="340" height="12" rx="6" fill="#E5E2F7" />
+            <g transform="translate(40,50) scale(1.7)">
+              <g class="float-slow">
+                <path
+                  d="M20 30 L45 18 Q60 32 75 18 L100 30 L90 52 L78 46 V100 H42 V46 L30 52 Z"
+                  fill="#4F46E5"
+                />
+              </g>
+            </g>
+            <g transform="translate(215,130) scale(1.7)">
+              <g class="float-slow delay">
+                <path
+                  d="M20 30 L45 18 Q60 32 75 18 L100 30 L90 52 L78 46 V100 H42 V46 L30 52 Z"
+                  fill="#FF6B35"
+                />
+              </g>
+            </g>
+            <g transform="translate(60,215) scale(1.1)">
+              <g class="float-slow delay">
+                <path
+                  d="M20 30 L45 18 Q60 32 75 18 L100 30 L90 52 L78 46 V100 H42 V46 L30 52 Z"
+                  fill="#06B58A"
+                />
+              </g>
+            </g>
           </svg>
         </div>
       </div>
@@ -294,7 +292,7 @@
             <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
             <polyline points="22 4 12 14.01 9 11.01"></polyline>
           </svg>
-          Pembayaran dikonfirmasi manual, aman dari salah kirim
+          Harga grosir jelas, makin banyak makin murah
         </div>
         <div class="trust-item">
           <svg
@@ -308,7 +306,7 @@
             <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
             <polyline points="22 4 12 14.01 9 11.01"></polyline>
           </svg>
-          Item masuk ke akun setelah pembayaran terverifikasi
+          Barang dikirim setelah pembayaran terverifikasi
         </div>
         <div class="trust-item">
           <svg
@@ -331,66 +329,15 @@
     <section>
       <div class="container">
         <div class="section-head">
-          <h2>Tiga hal yang paling sering dicari, semuanya ada di sini.</h2>
+          <h2>Pilih kategori grosir sesuai pasar kamu.</h2>
           <p>
             Klik kategori untuk lihat daftar lengkap produk dan harganya di
             halaman Produk.
           </p>
         </div>
         <div class="cat-grid">
-          <a href="produk.html#game" class="cat-card">
-            <div class="cat-image">
-              <img
-                src="https://images.pexels.com/photos/4293307/pexels-photo-4293307.jpeg?w=600&q=80&auto=format&fit=crop"
-                alt="Top Up Game"
-                loading="lazy"
-              />
-            </div>
-            <div class="cat-icon i-game">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <rect x="2" y="7" width="20" height="12" rx="4"></rect>
-                <line x1="7" y1="13" x2="11" y2="13"></line>
-                <line x1="9" y1="11" x2="9" y2="15"></line>
-                <circle cx="16" cy="11.5" r="1"></circle>
-                <circle cx="18.5" cy="14" r="1"></circle>
-              </svg>
-            </div>
-            <h3>Top Up Game</h3>
-            <p>
-              Diamond, UC, dan Genesis Crystal untuk game favoritmu — masuk akun
-              dalam hitungan menit.
-            </p>
-            <span class="cat-link"
-              >Lihat produk
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.4"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </span>
-          </a>
-          <a href="produk.html#voucher" class="cat-card">
-            <div class="cat-image">
-              <img
-                src="https://free-images.com/lg/93a5/apple_gift_cards_vouchers_1.jpg?w=600&q=80&auto=format&fit=crop"
-                alt="Top Up Voucher"
-                loading="lazy"
-              />
-            </div>
-            <div class="cat-icon i-voucher">
+          <a href="produk.html#pria" class="cat-card"
+            ><div class="cat-icon i-game">
               <svg
                 viewBox="0 0 24 24"
                 fill="none"
@@ -400,21 +347,14 @@
                 stroke-linejoin="round"
               >
                 <path
-                  d="M2 9a3 3 0 0 1 0 6v3a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1v-3a3 3 0 0 1 0-6V6a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1z"
+                  d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"
                 ></path>
-                <line
-                  x1="13"
-                  y1="5"
-                  x2="13"
-                  y2="19"
-                  stroke-dasharray="2 2"
-                ></line>
               </svg>
             </div>
-            <h3>Top Up Voucher</h3>
+            <h3>Pakaian Pria</h3>
             <p>
-              Google Play, Steam Wallet, PlayStation Store, sampai iTunes — kode
-              langsung dikirim.
+              Kaos, kemeja, dan celana untuk stok toko atau dijual lagi — model
+              basic sampai kekinian.
             </p>
             <span class="cat-link"
               >Lihat produk
@@ -427,19 +367,9 @@
                 stroke-linejoin="round"
               >
                 <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </span>
-          </a>
-          <a href="produk.html#software" class="cat-card">
-            <div class="cat-image">
-              <img
-                src="https://images.pexels.com/photos/31113917/pexels-photo-31113917.jpeg?auto=compress&cs=tinysrgb&w=600"
-                alt="Tampilan antarmuka software di layar komputer"
-                loading="lazy"
-              />
-            </div>
-            <div class="cat-icon i-kasir">
+                <polyline points="12 5 19 12 12 19"></polyline></svg></span></a
+          ><a href="produk.html#wanita" class="cat-card"
+            ><div class="cat-icon i-voucher">
               <svg
                 viewBox="0 0 24 24"
                 fill="none"
@@ -448,15 +378,15 @@
                 stroke-linecap="round"
                 stroke-linejoin="round"
               >
-                <rect x="3" y="9" width="18" height="12" rx="2"></rect>
-                <path d="M7 9V6a5 5 0 0 1 10 0v3"></path>
-                <line x1="9" y1="14" x2="15" y2="14"></line>
+                <path
+                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                ></path>
               </svg>
             </div>
-            <h3>Software</h3>
+            <h3>Pakaian Wanita</h3>
             <p>
-              Sistem kasir untuk warung, resto, retail, dan toko online — siap
-              pakai, tinggal langganan.
+              Atasan, gamis, dress, dan bawahan — pilihan favorit pembeli
+              online.
             </p>
             <span class="cat-link"
               >Lihat produk
@@ -469,10 +399,39 @@
                 stroke-linejoin="round"
               >
                 <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
+                <polyline points="12 5 19 12 12 19"></polyline></svg></span></a
+          ><a href="produk.html#paket" class="cat-card"
+            ><div class="cat-icon i-kasir">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+                ></path>
               </svg>
-            </span>
-          </a>
+            </div>
+            <h3>Paket Reseller</h3>
+            <p>
+              Paket campur model siap jual, cocok untuk yang baru mulai kulakan.
+            </p>
+            <span class="cat-link"
+              >Lihat produk
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline></svg></span
+          ></a>
         </div>
       </div>
     </section>
@@ -502,10 +461,10 @@
                 <polyline points="12 6 12 12 16 14"></polyline>
               </svg>
             </div>
-            <h4>Cepat diproses</h4>
+            <h4>Stok ready, cepat dikirim</h4>
             <p>
-              Sebagian besar pesanan selesai dalam 3–5 menit setelah pembayaran
-              dikonfirmasi.
+              Barang ready stock, dikemas rapi dan dikirim cepat setelah
+              pembayaran dikonfirmasi.
             </p>
           </div>
           <div class="feature-item">
@@ -521,10 +480,10 @@
                 <path d="M12 2 3 7v6c0 5 4 8 9 9 5-1 9-4 9-9V7z"></path>
               </svg>
             </div>
-            <h4>Aman dan jelas</h4>
+            <h4>Barang dicek dulu</h4>
             <p>
-              Setiap pesanan dicek manual oleh admin — kalau ada yang salah,
-              langsung dibantu.
+              Setiap pesanan dicek sebelum kirim — kalau ada yang cacat atau
+              salah ukuran, langsung dibantu.
             </p>
           </div>
           <div class="feature-item">
@@ -544,8 +503,8 @@
             </div>
             <h4>Chat manusia beneran</h4>
             <p>
-              Ada pertanyaan sebelum bayar? Tanya dulu di WhatsApp, admin kami
-              balas langsung.
+              Mau minta katalog atau foto asli barang? Tanya dulu di WhatsApp,
+              admin kami balas langsung.
             </p>
           </div>
           <div class="feature-item">
@@ -562,10 +521,10 @@
                 <path d="M7 9V6a5 5 0 0 1 10 0v3"></path>
               </svg>
             </div>
-            <h4>Lebih dari sekadar top up</h4>
+            <h4>Makin banyak, makin murah</h4>
             <p>
-              Butuh sistem kasir untuk usaha? Kami juga sediakan, tanpa perlu
-              pindah tempat langganan.
+              Harga per pcs turun untuk pembelian partai besar. Tanya harga
+              khusus ke admin.
             </p>
           </div>
         </div>
@@ -596,8 +555,8 @@
                   loading="lazy"
                 />
                 <p class="testi-quote">
-                  "Pesen diamond ML jam 11 malam, tetap dibales dan masuk cepat.
-                  Jadi langganan sampai sekarang."
+                  "Awalnya cuma kulakan 1 lusin. Admin bantu pilihkan model yang
+                  laku, sekarang repeat order tiap minggu."
                 </p>
                 <div class="testi-name">Raka Pratama</div>
               </div>
@@ -611,8 +570,8 @@
                   loading="lazy"
                 />
                 <p class="testi-quote">
-                  "Awalnya ragu pakai kasir digital, tapi tim Bagina bantu
-                  setting sampai jalan. Laporan harian jadi rapi."
+                  "Kaos dan gamisnya sesuai foto, bahan adem, margin untuk lapak
+                  online saya enak."
                 </p>
                 <div class="testi-name">Ibu Sri Wahyuni</div>
               </div>
@@ -622,12 +581,12 @@
                 <img
                   class="testi-avatar"
                   src="https://images.pexels.com/photos/36629227/pexels-photo-36629227.jpeg?auto=compress&cs=tinysrgb&w=160&h=160&fit=crop"
-                  alt="Dinda Amalia"
+                  alt="Evann"
                   loading="lazy"
                 />
                 <p class="testi-quote">
-                  "Beli voucher Steam buat kado teman, prosesnya jelas dan admin
-                  ramah waktu aku salah tulis nominal."
+                  "Order 3 lusin campur ukuran, dikemas rapi, dan admin sabar
+                  waktu saya ganti model."
                 </p>
                 <div class="testi-name">Evann</div>
               </div>
@@ -669,10 +628,10 @@
       <div class="container">
         <div class="cta-banner">
           <div>
-            <h2>Siap top up atau pasang kasir hari ini?</h2>
+            <h2>Siap kulakan baju grosir hari ini?</h2>
             <p>
-              Chat admin sekarang, ceritakan yang kamu butuh — sisanya biar kami
-              yang urus.
+              Chat admin, minta katalog dan daftar harga terbaru — kami bantu
+              pilihkan modelnya.
             </p>
           </div>
           <a href="#" data-wa-general class="btn btn-accent">
@@ -695,8 +654,8 @@
               ><span class="dot"></span>Bagina</a
             >
             <p>
-              Top up game, voucher digital, dan aplikasi kasir — semua transaksi
-              lewat chat WhatsApp langsung.
+              Grosir pakaian pria &amp; wanita — tanya stok, nego harga, dan
+              pesan lewat chat WhatsApp langsung.
             </p>
           </div>
           <div class="footer-cols">
@@ -708,9 +667,9 @@
             </div>
             <div class="footer-col">
               <h5>Kategori</h5>
-              <a href="produk.html#game">Top Up Game</a>
-              <a href="produk.html#voucher">Top Up Voucher</a>
-              <a href="produk.html#software">Software</a>
+              <a href="produk.html#pria">Pakaian Pria</a>
+              <a href="produk.html#wanita">Pakaian Wanita</a>
+              <a href="produk.html#paket">Paket Reseller</a>
             </div>
           </div>
         </div>

@@ -11,29 +11,7 @@ const CONFIG = {
 };
 
 // ▶ TAMBAHAN — peta logo brand (dipakai di kartu produk)
-const BRAND_ICONS = {
-  "Mobile Legends":
-    "https://www.google.com/s2/favicons?domain=mobilelegends.com&sz=128",
-  "Free Fire": "https://www.google.com/s2/favicons?domain=ff.garena.com&sz=128",
-  "PUBG Mobile":
-    "https://www.google.com/s2/favicons?domain=pubgmobile.com&sz=128",
-  "Genshin Impact":
-    "https://www.google.com/s2/favicons?domain=hoyoverse.com&sz=128",
-  "Google Play":
-    "https://www.google.com/s2/favicons?domain=play.google.com&sz=128",
-  "Steam Wallet":
-    "https://www.google.com/s2/favicons?domain=steampowered.com&sz=128",
-  "PlayStation Store":
-    "https://www.google.com/s2/favicons?domain=playstation.com&sz=128",
-  "iTunes & App Store":
-    "https://www.google.com/s2/favicons?domain=apple.com&sz=128",
-  "Aplikasi Kasir":
-    "https://ui-avatars.com/api/?name=AK&background=06B58A&color=fff&size=128&bold=true",
-  "Aplikasi Parkir":
-    "https://ui-avatars.com/api/?name=AP&background=4F46E5&color=fff&size=128&bold=true",
-  "Aplikasi Antrian":
-    "https://ui-avatars.com/api/?name=AA&background=FF6B35&color=fff&size=128&bold=true",
-};
+const BRAND_ICONS = {}; // opsional: isi logo/foto per grup produk
 
 // ▶ TAMBAHAN — ambil icon brand; kalau tidak ada, pakai inisial otomatis
 function brandIcon(name) {
@@ -150,327 +128,57 @@ function initCarousel() {
   startAuto();
 }
 
-/* ---------- Data produk (halaman Produk) ---------- */
+/* Data produk — HARGA DI BAWAH ADALAH CONTOH, ganti dengan harga aslimu */
+// Foto produk: taruh file di folder images/ dengan nama sesuai nama produk
+// (contoh: "Kaos Oversize" -> images/kaos-oversize.jpg), atau isi parameter
+// terakhir dengan path/URL sendiri. Kalau file tidak ada, tampil placeholder.
+const slug = (t) => t.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+const P = (group, name, price, detail, image) => ({
+  group, name, price: "Rp " + price, priceNote: "/pcs",
+  image: image || `images/${slug(name)}.jpg`,
+  features: ["Min. order 12 pcs", detail, "Boleh campur ukuran"],
+});
+const K = (group, name, price, detail, image) => ({
+  group, name, price: "Rp " + price, priceNote: "/paket",
+  image: image || `images/${slug(name)}.jpg`,
+  features: ["Siap jual", detail, "Dikemas rapi"],
+});
 const PRODUCT_DATA = {
-  game: {
-    label: "Top Up Game",
-    desc: "Isi ulang diamond, UC, dan item favorit langsung masuk ke akun game-mu. Tersedia paket mulai Rp 1 juta.",
+  pria: {
+    label: "Pakaian Pria",
+    desc: "Kaos, kemeja, dan celana pria harga grosir. Min. order 12 pcs, boleh campur model.",
     items: [
-      // Mobile Legends
-      { group: "Mobile Legends", name: "4000 Diamonds", price: "Rp 1.000.000" },
-      { group: "Mobile Legends", name: "8000 Diamonds", price: "Rp 2.000.000" },
-      {
-        group: "Mobile Legends",
-        name: "12000 Diamonds",
-        price: "Rp 3.000.000",
-      },
-      {
-        group: "Mobile Legends",
-        name: "20000 Diamonds",
-        price: "Rp 5.000.000",
-      },
-      {
-        group: "Mobile Legends",
-        name: "40000 Diamonds",
-        price: "Rp 10.000.000",
-      },
-      // Free Fire
-      { group: "Free Fire", name: "7000 Diamonds", price: "Rp 1.000.000" },
-      { group: "Free Fire", name: "14000 Diamonds", price: "Rp 2.000.000" },
-      { group: "Free Fire", name: "21000 Diamonds", price: "Rp 3.000.000" },
-      { group: "Free Fire", name: "35000 Diamonds", price: "Rp 5.000.000" },
-      { group: "Free Fire", name: "70000 Diamonds", price: "Rp 10.000.000" },
-      // PUBG Mobile
-      { group: "PUBG Mobile", name: "4000 UC", price: "Rp 1.000.000" },
-      { group: "PUBG Mobile", name: "8000 UC", price: "Rp 2.000.000" },
-      { group: "PUBG Mobile", name: "12000 UC", price: "Rp 3.000.000" },
-      { group: "PUBG Mobile", name: "20000 UC", price: "Rp 5.000.000" },
-      { group: "PUBG Mobile", name: "40000 UC", price: "Rp 10.000.000" },
-      // Genshin Impact
-      {
-        group: "Genshin Impact",
-        name: "4000 Genesis Crystal",
-        price: "Rp 1.000.000",
-      },
-      {
-        group: "Genshin Impact",
-        name: "8000 Genesis Crystal",
-        price: "Rp 2.000.000",
-      },
-      {
-        group: "Genshin Impact",
-        name: "12000 Genesis Crystal",
-        price: "Rp 3.000.000",
-      },
-      {
-        group: "Genshin Impact",
-        name: "20000 Genesis Crystal",
-        price: "Rp 5.000.000",
-      },
-      {
-        group: "Genshin Impact",
-        name: "40000 Genesis Crystal",
-        price: "Rp 10.000.000",
-      },
+    P("Kaos", "Kaos Polos Cotton Combed 30s", "28.000", "Bahan adem, size M–XXL"),
+    P("Kaos", "Kaos Oversize", "35.000", "Bahan tebal, size all size"),
+    P("Kaos", "Polo Shirt", "45.000", "Kerah rapi, size M–XXL"),
+    P("Kemeja", "Kemeja Flanel", "65.000", "Motif kotak, size M–XL"),
+    P("Kemeja", "Kemeja Oxford", "70.000", "Lengan panjang, size M–XL"),
+    P("Celana", "Celana Jeans", "85.000", "Size 28–36"),
+    P("Celana", "Celana Chino", "75.000", "Size 28–36"),
+    P("Celana", "Celana Training", "40.000", "Size M–XL"),
     ],
   },
-  voucher: {
-    label: "Top Up Voucher",
-    desc: "Kode voucher digital untuk belanja aplikasi, game, dan hiburan favoritmu.",
+  wanita: {
+    label: "Pakaian Wanita",
+    desc: "Atasan, gamis, dress, dan bawahan wanita harga grosir. Min. order 12 pcs, boleh campur model.",
     items: [
-      { group: "Google Play", name: "Gift Card Rp 10.000", price: "Rp 11.000" },
-      { group: "Google Play", name: "Gift Card Rp 50.000", price: "Rp 52.500" },
-      {
-        group: "Google Play",
-        name: "Gift Card Rp 100.000",
-        price: "Rp 103.000",
-      },
-      { group: "Steam Wallet", name: "Kode Rp 45.000", price: "Rp 47.000" },
-      { group: "Steam Wallet", name: "Kode Rp 90.000", price: "Rp 92.500" },
-      { group: "Steam Wallet", name: "Kode Rp 180.000", price: "Rp 183.000" },
-      {
-        group: "PlayStation Store",
-        name: "Voucher Rp 90.000",
-        price: "Rp 93.000",
-      },
-      {
-        group: "PlayStation Store",
-        name: "Voucher Rp 180.000",
-        price: "Rp 184.000",
-      },
-      {
-        group: "PlayStation Store",
-        name: "Voucher Rp 450.000",
-        price: "Rp 455.000",
-      },
-      {
-        group: "iTunes & App Store",
-        name: "Gift Card Rp 60.000",
-        price: "Rp 62.000",
-      },
-      {
-        group: "iTunes & App Store",
-        name: "Gift Card Rp 120.000",
-        price: "Rp 123.000",
-      },
-      {
-        group: "iTunes & App Store",
-        name: "Gift Card Rp 300.000",
-        price: "Rp 305.000",
-      },
+    P("Atasan", "Blouse Rayon", "45.000", "Size S–XL"),
+    P("Atasan", "Kaos Crop", "30.000", "Size all size"),
+    P("Atasan", "Kemeja Oversize", "55.000", "Size all size"),
+    P("Gamis & Dress", "Gamis Polos", "95.000", "Size M–XXL"),
+    P("Gamis & Dress", "Dress Rayon", "70.000", "Size S–XL"),
+    P("Bawahan & Hijab", "Rok Plisket", "50.000", "Size all size"),
+    P("Bawahan & Hijab", "Celana Kulot", "55.000", "Size S–XL"),
+    P("Bawahan & Hijab", "Hijab Voal", "25.000", "Aneka warna"),
     ],
   },
-  software: {
-    label: "Software",
-    desc: "Solusi software untuk bisnis: aplikasi kasir, parkir, dan antrian. Harga mulai dari Rp 2.750.000.",
+  paket: {
+    label: "Paket Reseller",
+    desc: "Paket campur model pria dan wanita, siap dijual lagi.",
     items: [
-      // Aplikasi Kasir
-      {
-        group: "Aplikasi Kasir",
-        name: "Kasir Basic",
-        price: "Rp 2.750.000",
-        priceNote: "lisensi",
-        features: [
-          "1 outlet, 1 kasir",
-          "Manajemen produk & stok",
-          "Laporan penjualan harian",
-          "Support QRIS & tunai",
-        ],
-      },
-      {
-        group: "Aplikasi Kasir",
-        name: "Kasir Standard",
-        price: "Rp 4.950.000",
-        priceNote: "lisensi",
-        features: [
-          "1 outlet, 3 kasir",
-          "Manajemen stok multi-gudang",
-          "Laporan penjualan & laba",
-          "Integrasi printer thermal",
-        ],
-      },
-      {
-        group: "Aplikasi Kasir",
-        name: "Kasir Pro",
-        price: "Rp 9.750.000",
-        priceNote: "lisensi",
-        features: [
-          "1 outlet, 10 kasir",
-          "CRM & program loyalitas",
-          "Multi-payment & e-wallet",
-          "Dashboard analitik real-time",
-        ],
-      },
-      {
-        group: "Aplikasi Kasir",
-        name: "Kasir Business",
-        price: "Rp 14.950.000",
-        priceNote: "lisensi",
-        features: [
-          "3 outlet, 20 kasir",
-          "Manajemen inventori lanjutan",
-          "Integrasi marketplace",
-          "Absensi karyawan & payroll",
-        ],
-      },
-      {
-        group: "Aplikasi Kasir",
-        name: "Kasir Enterprise",
-        price: "Rp 19.250.000",
-        priceNote: "lisensi",
-        features: [
-          "5 outlet, 50 kasir",
-          "Multi-currency & multi-bahasa",
-          "API integration",
-          "Priority support 24/7",
-        ],
-      },
-      {
-        group: "Aplikasi Kasir",
-        name: "Kasir Ultimate",
-        price: "Rp 24.950.000",
-        priceNote: "lisensi",
-        features: [
-          "10 outlet, unlimited kasir",
-          "Custom report & dashboard",
-          "Dedicated account manager",
-          "On-site training",
-        ],
-      },
-      {
-        group: "Aplikasi Kasir",
-        name: "Kasir Platinum",
-        price: "Rp 29.250.000",
-        priceNote: "lisensi",
-        features: [
-          "Unlimited outlet & kasir",
-          "White-label & custom branding",
-          "Full API access",
-          "SLA 99.9% uptime",
-        ],
-      },
-      // Aplikasi Parkir
-      {
-        group: "Aplikasi Parkir",
-        name: "Parkir Basic",
-        price: "Rp 5.000.000",
-        priceNote: "lisensi",
-        features: [
-          "1 gate masuk/keluar",
-          "Tiket manual & barcode",
-          "Laporan pendapatan harian",
-          "Integrasi printer tiket",
-        ],
-      },
-      {
-        group: "Aplikasi Parkir",
-        name: "Parkir Standard",
-        price: "Rp 10.000.000",
-        priceNote: "lisensi",
-        features: [
-          "2 gate masuk/keluar",
-          "RFID & kartu member",
-          "Display tarif otomatis",
-          "Laporan multi-shift",
-        ],
-      },
-      {
-        group: "Aplikasi Parkir",
-        name: "Parkir Pro",
-        price: "Rp 15.000.000",
-        priceNote: "lisensi",
-        features: [
-          "4 gate masuk/keluar",
-          "Kamera LPR (plat nomor)",
-          "Integrasi e-money",
-          "Dashboard monitoring",
-        ],
-      },
-      {
-        group: "Aplikasi Parkir",
-        name: "Parkir Business",
-        price: "Rp 20.000.000",
-        priceNote: "lisensi",
-        features: [
-          "8 gate masuk/keluar",
-          "Sistem reservasi parkir",
-          "Aplikasi mobile untuk pengguna",
-          "Analitik okupansi",
-        ],
-      },
-      {
-        group: "Aplikasi Parkir",
-        name: "Parkir Enterprise",
-        price: "Rp 25.000.000",
-        priceNote: "lisensi",
-        features: [
-          "Unlimited gate",
-          "Integrasi dengan sistem gedung",
-          "Custom workflow",
-          "Support prioritas",
-        ],
-      },
-      // Aplikasi Antrian
-      {
-        group: "Aplikasi Antrian",
-        name: "Antrian Basic",
-        price: "Rp 5.000.000",
-        priceNote: "lisensi",
-        features: [
-          "1 loket, 1 display",
-          "Nomor antrian kertas",
-          "Panggilan suara",
-          "Laporan antrian harian",
-        ],
-      },
-      {
-        group: "Aplikasi Antrian",
-        name: "Antrian Standard",
-        price: "Rp 10.000.000",
-        priceNote: "lisensi",
-        features: [
-          "3 loket, 2 display",
-          "Antrian online via web",
-          "Estimasi waktu tunggu",
-          "Integrasi TV display",
-        ],
-      },
-      {
-        group: "Aplikasi Antrian",
-        name: "Antrian Pro",
-        price: "Rp 15.000.000",
-        priceNote: "lisensi",
-        features: [
-          "5 loket, 3 display",
-          "Aplikasi mobile untuk petugas",
-          "Sistem prioritas & reservasi",
-          "Dashboard real-time",
-        ],
-      },
-      {
-        group: "Aplikasi Antrian",
-        name: "Antrian Business",
-        price: "Rp 20.000.000",
-        priceNote: "lisensi",
-        features: [
-          "10 loket, 5 display",
-          "Multi-layanan & multi-lokasi",
-          "API untuk integrasi",
-          "Analitik kepuasan pelanggan",
-        ],
-      },
-      {
-        group: "Aplikasi Antrian",
-        name: "Antrian Enterprise",
-        price: "Rp 25.000.000",
-        priceNote: "lisensi",
-        features: [
-          "Unlimited loket & display",
-          "Custom branding & voice",
-          "Integrasi CRM & ERP",
-          "Dedicated support",
-        ],
-      },
+    K("Starter", "12 pcs campur model", "360.000", "1 lusin, boleh campur"),
+    K("Reseller", "36 pcs campur model", "1.000.000", "3 lusin, boleh campur"),
+    K("Partai Besar", "100 pcs campur model", "2.600.000", "Harga terbaik per pcs"),
     ],
   },
 };
@@ -505,8 +213,8 @@ function initProductTabs() {
         const cardClass = hasFeatures ? "item-card kasir-card" : "item-card";
         html += `
           <div class="${cardClass}">
-            <div class="item-icon">
-              <img src="${brandIcon(sub)}" alt="${sub}" loading="lazy">
+            <div class="item-photo">
+              ${item.image ? `<img src="${item.image}" alt="${item.name}" loading="lazy" onerror="this.remove()">` : ""}
             </div>
             <h4>${item.name}</h4>
             <div class="item-desc">${sub}</div>
