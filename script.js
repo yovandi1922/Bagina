@@ -8,6 +8,8 @@
 const CONFIG = {
   whatsappNumber: "6287891860447",
   storeName: "Bagina",
+  // PIN untuk membuat link konfirmasi pembayaran (cek-pembayaran.html#admin). GANTI!
+  adminPin: "bagina-2026",
 };
 
 // ▶ TAMBAHAN — peta logo brand (dipakai di kartu produk)
@@ -47,6 +49,10 @@ document.addEventListener("DOMContentLoaded", () => {
   initActiveNav();
   initCarousel();
   initProductTabs();
+  initFaqAccordion(); // ← FAQ accordion
+  initCartUI();
+  initCartPage();
+  initStatusPage();
 });
 
 /* ---------- Mobile nav toggle ---------- */
@@ -194,18 +200,6 @@ const PRODUCT_DATA = {
         "Campur model pria & wanita",
         "images/100-pcs-campur-model.jpg",
       ),
-      // K(
-      //   "Paket Campur Model",
-      //   "Paket Reseller",
-      //   "Campur model pria & wanita",
-      //   "images/100-pcs-campur-model.jpg",
-      // ),
-      // K(
-      //   "Paket Campur Model",
-      //   "Paket Partai Besar",
-      //   "Harga terbaik, siap dijual lagi",
-      //   "images/100-pcs-campur-model.jpg",
-      // ),
     ],
   },
 };
@@ -247,6 +241,7 @@ function initProductTabs() {
             <div class="item-desc">${sub}</div>
             <div class="item-price">${item.price}${item.priceNote ? `<span>${item.priceNote}</span>` : ""}</div>
             ${hasFeatures ? `<ul class="kasir-features">${item.features.map((f) => `<li>${CHECK_ICON}<span>${f}</span></li>`).join("")}</ul>` : ""}
+            <button class="btn btn-primary btn-block" style="margin-bottom:8px" data-cart data-name="${item.name}" data-sub="${sub}">+ Tambah ke Keranjang</button>
             <button class="btn btn-accent btn-block" data-order="${sub} — ${item.name}" data-price="${item.price}${item.priceNote ? " " + item.priceNote : ""}">
               ${hasFeatures ? "Pesan via WhatsApp" : "Pesan Sekarang"}
             </button>
@@ -257,6 +252,12 @@ function initProductTabs() {
 
     section.innerHTML = html;
     groupsWrap.appendChild(section);
+  });
+
+  groupsWrap.querySelectorAll("[data-cart]").forEach((btn) => {
+    btn.addEventListener("click", () =>
+      addToCart(btn.dataset.name, btn.dataset.sub),
+    );
   });
 
   // pasang event listener tombol pesan
@@ -287,4 +288,305 @@ function initProductTabs() {
   const initialKey =
     window.location.hash.replace("#", "") || tabs[0]?.dataset.tab;
   activate(PRODUCT_DATA[initialKey] ? initialKey : tabs[0]?.dataset.tab);
+}
+
+/* ---------- FAQ Accordion (faq.html) ---------- */
+function initFaqAccordion() {
+  const items = document.querySelectorAll(".faq-item");
+  if (!items.length) return;
+
+  items.forEach((item) => {
+    const q = item.querySelector(".faq-q");
+    const a = item.querySelector(".faq-a");
+    if (!q || !a) return;
+
+    q.addEventListener("click", () => {
+      const isOpen = item.classList.contains("open");
+
+      // Tutup item lain di kategori yang sama (biar rapi)
+      const parent = item.closest(".faq-cat");
+      if (parent) {
+        parent.querySelectorAll(".faq-item.open").forEach((other) => {
+          if (other !== item) {
+            other.classList.remove("open");
+            const oa = other.querySelector(".faq-a");
+            if (oa) oa.style.maxHeight = null;
+          }
+        });
+      }
+
+      item.classList.toggle("open", !isOpen);
+      a.style.maxHeight = !isOpen ? a.scrollHeight + "px" : null;
+    });
+  });
+}
+
+/* =========================================================
+   KERANJANG, CHECKOUT & CEK PEMBAYARAN
+   - Data keranjang & pesanan disimpan di localStorage perangkat pembeli.
+   - Pembayaran manual via WhatsApp. Admin mengonfirmasi dengan
+     mengirim LINK STATUS (dibuat di cek-pembayaran.html#admin).
+   - Isi harga per produk di PRICES agar total dihitung otomatis.
+   ========================================================= */
+const PRICES = {}; // contoh: { "Kaos Oversize": 45000, "Celana Jeans": 120000 }
+const STAGES = [
+  ["menunggu", "Menunggu pembayaran"],
+  ["dibayar", "Pembayaran diterima"],
+  ["diproses", "Pesanan diproses"],
+  ["dikirim", "Dikirim"],
+  ["selesai", "Selesai"],
+];
+const store = {
+  get(k, d) {
+    try {
+      const v = JSON.parse(localStorage.getItem(k));
+      return v ?? d;
+    } catch (e) {
+      return d;
+    }
+  },
+  set(k, v) {
+    try {
+      localStorage.setItem(k, JSON.stringify(v));
+    } catch (e) {}
+  },
+};
+const esc = (s) =>
+  String(s ?? "").replace(
+    /[&<>"']/g,
+    (c) =>
+      ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[
+        c
+      ],
+  );
+const rp = (n) => "Rp " + Number(n).toLocaleString("id-ID");
+const waUrl = (t) =>
+  `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(t)}`;
+const orderSig = (id, s) => {
+  let h = 5381;
+  for (const ch of `${id}|${s}|${CONFIG.adminPin}`)
+    h = ((h << 5) + h + ch.charCodeAt(0)) >>> 0;
+  return h.toString(36);
+};
+const getCart = () => store.get("bagina_cart", []);
+function saveCart(c) {
+  store.set("bagina_cart", c);
+  updateCartBadge();
+}
+function updateCartBadge() {
+  const n = getCart().reduce((a, i) => a + i.qty, 0);
+  document.querySelectorAll(".cart-badge").forEach((b) => {
+    b.textContent = n;
+    b.dataset.n = n;
+  });
+}
+function toast(msg) {
+  let t = document.querySelector(".toast");
+  if (!t) {
+    t = document.createElement("div");
+    t.className = "toast";
+    document.body.appendChild(t);
+  }
+  t.textContent = msg;
+  t.classList.add("show");
+  clearTimeout(t._h);
+  t._h = setTimeout(() => t.classList.remove("show"), 1800);
+}
+function addToCart(name, sub) {
+  const c = getCart(),
+    id = `${sub} — ${name}`;
+  const f = c.find((i) => i.id === id);
+  f ? f.qty++ : c.push({ id, name, sub, qty: 1 });
+  saveCart(c);
+  toast("Ditambahkan ke keranjang ✓");
+}
+
+/* ikon keranjang di navbar + link di footer (otomatis di semua halaman) */
+function initCartUI() {
+  const right = document.querySelector(".nav-right");
+  if (right) {
+    const a = document.createElement("a");
+    a.href = "cart.html";
+    a.className = "cart-link";
+    a.setAttribute("aria-label", "Keranjang");
+    a.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"></path></svg><span class="cart-badge" data-n="0"></span>`;
+    right.prepend(a);
+  }
+  document.querySelectorAll(".footer-col").forEach((col) => {
+    if (col.querySelector("h5")?.textContent.trim() === "Halaman") {
+      col.insertAdjacentHTML(
+        "beforeend",
+        `<a href="cart.html">Keranjang</a><a href="cek-pembayaran.html">Cek Pembayaran</a>`,
+      );
+    }
+  });
+  updateCartBadge();
+}
+
+/* ---------- Halaman keranjang (cart.html) ---------- */
+function initCartPage() {
+  const root = document.getElementById("cart-root");
+  if (!root) return;
+  // tombol ke cek pembayaran: hanya muncul kalau sudah pernah membuat pesanan
+  const trackBtn = () =>
+    store.get("bagina_orders", []).length
+      ? `<div class="cart-card cart-empty" style="margin-top:20px"><h2>Sudah punya pesanan?</h2><p>Cek apakah pembayaranmu sudah diterima dan sampai mana prosesnya.</p><a class="btn btn-primary" href="cek-pembayaran.html">Cek Status Pembayaran →</a></div>`
+      : "";
+  function render() {
+    const c = getCart();
+    if (!c.length) {
+      root.innerHTML =
+        `<div class="cart-card cart-empty"><h2>Keranjangmu masih kosong</h2><p>Pilih produk dulu, lalu klik "Tambah ke Keranjang".</p><a class="btn btn-primary" href="produk.html">Lihat Produk</a></div>` +
+        trackBtn();
+      return;
+    }
+    let total = 0,
+      known = true;
+    const rows = c
+      .map((i, idx) => {
+        const p = PRICES[i.name];
+        p ? (total += p * i.qty) : (known = false);
+        return `<div class="cart-row"><div><strong>${esc(i.name)}</strong><small>${esc(i.sub)}${p ? " · " + rp(p) + "/pcs" : ""}</small></div>
+        <div class="qty"><button type="button" data-q="${idx}" data-d="-1">−</button><span>${i.qty}</span><button type="button" data-q="${idx}" data-d="1">+</button></div>
+        <button type="button" class="cart-del" data-rm="${idx}" aria-label="Hapus">✕</button></div>`;
+      })
+      .join("");
+    root.innerHTML =
+      `<div class="cart-grid">
+      <div class="cart-card"><h2>Pesanan (${c.length} produk)</h2>${rows}
+        <p class="cart-note">Rincian ukuran/warna bisa kamu tulis di kolom catatan.</p></div>
+      <div class="cart-card"><h2>Data Pengiriman</h2>
+        <form id="checkout-form" class="cart-form">
+          <label for="f-nama">Nama</label><input id="f-nama" required>
+          <label for="f-wa">No. WhatsApp</label><input id="f-wa" type="tel" required placeholder="08xxxxxxxxxx">
+          <label for="f-alamat">Alamat lengkap</label><textarea id="f-alamat" rows="3" required></textarea>
+          <label for="f-eks">Ekspedisi</label><select id="f-eks"><option>JNE</option><option>J&amp;T</option><option>SiCepat</option><option>Lainnya</option></select>
+          <label for="f-cat">Catatan (ukuran, warna, dll)</label><textarea id="f-cat" rows="2"></textarea>
+          <div class="cart-sum"><span>Total</span><span>${known ? rp(total) : "Dikonfirmasi admin"}</span></div>
+          <p class="cart-note">Minimal order Rp 2.500.000. Ongkir belum termasuk. Pembayaran dilakukan via transfer; nomor rekening dikirim admin lewat WhatsApp.</p>
+          <button class="btn btn-accent btn-block">Buat Pesanan &amp; Bayar via WhatsApp</button>
+        </form></div></div>` + trackBtn();
+    root.querySelectorAll("[data-q]").forEach((b) =>
+      b.addEventListener("click", () => {
+        const cart = getCart(),
+          it = cart[b.dataset.q];
+        it.qty = Math.max(1, it.qty + Number(b.dataset.d));
+        saveCart(cart);
+        render();
+      }),
+    );
+    root.querySelectorAll("[data-rm]").forEach((b) =>
+      b.addEventListener("click", () => {
+        const cart = getCart();
+        cart.splice(b.dataset.rm, 1);
+        saveCart(cart);
+        render();
+      }),
+    );
+    root.querySelector("#checkout-form").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const v = (id) => root.querySelector(id).value.trim();
+      const d = new Date(),
+        pad = (n) => String(n).padStart(2, "0");
+      const id = `BGN-${String(d.getFullYear()).slice(2)}${pad(d.getMonth() + 1)}${pad(d.getDate())}-${Math.random().toString(36).slice(2, 6).toUpperCase()}`;
+      const cust = {
+        nama: v("#f-nama"),
+        wa: v("#f-wa"),
+        alamat: v("#f-alamat"),
+        eks: v("#f-eks"),
+        cat: v("#f-cat"),
+      };
+      const order = {
+        id,
+        date: Date.now(),
+        items: c,
+        total: known ? total : null,
+        cust,
+        status: "menunggu",
+      };
+      store.set("bagina_orders", [order, ...store.get("bagina_orders", [])]);
+      store.set("bagina_last", id);
+      const lines = c
+        .map((i, n) => `${n + 1}. ${i.sub} — ${i.name} x${i.qty}`)
+        .join("\n");
+      const msg = `Halo ${CONFIG.storeName}, saya mau checkout pesanan *${id}*\n\n*Pesanan:*\n${lines}\n\n*Total:* ${known ? rp(total) : "mohon dihitungkan"}\n\n*Data pengiriman:*\nNama: ${cust.nama}\nWA: ${cust.wa}\nAlamat: ${cust.alamat}\nEkspedisi: ${cust.eks}\nCatatan: ${cust.cat || "-"}\n\nMohon info total & nomor rekening untuk pembayaran. Bukti transfer saya kirim setelah ini ya!`;
+      saveCart([]);
+      window.open(waUrl(msg), "_blank", "noopener");
+      location.href = "cek-pembayaran.html?id=" + encodeURIComponent(id);
+    });
+  }
+  render();
+}
+
+/* ---------- Halaman cek pembayaran (cek-pembayaran.html) ---------- */
+function initStatusPage() {
+  const root = document.getElementById("status-root");
+  if (!root) return;
+  const q = new URLSearchParams(location.search);
+  const orders = store.get("bagina_orders", []);
+  const statuses = store.get("bagina_status", {});
+  let id = (q.get("id") || "").trim().toUpperCase();
+  const s = q.get("s"),
+    k = q.get("k");
+  let html = "";
+  if (id && s && k) {
+    if (STAGES.some((x) => x[0] === s) && k === orderSig(id, s)) {
+      statuses[id] = s;
+      store.set("bagina_status", statuses);
+      html += `<div class="cart-alert">✓ Status diperbarui dari konfirmasi admin.</div>`;
+    } else
+      html += `<div class="cart-alert">Link konfirmasi tidak valid. Hubungi admin lewat WhatsApp.</div>`;
+  }
+  if (!id) id = store.get("bagina_last", "");
+  const order = orders.find((o) => o.id === id);
+  const cur = statuses[id] || (order ? order.status : null);
+
+  html += `<div class="cart-card"><h2>Cek Status Pesanan</h2><form id="find-form" class="cart-form">
+    <label for="oid">Nomor pesanan</label><input id="oid" placeholder="BGN-260102-AB12" value="${esc(id)}" required>
+    <button class="btn btn-primary btn-block" style="margin-top:14px">Cek Status</button></form></div>`;
+
+  if (id && cur) {
+    const idx = STAGES.findIndex((x) => x[0] === cur);
+    const items = order
+      ? order.items.map((i) => `<li>${esc(i.name)} × ${i.qty}</li>`).join("")
+      : "";
+    html += `<div class="cart-card" style="margin-top:20px">
+      <h2>${esc(id)} <span class="status-badge ${idx > 0 ? "ok" : ""}">${STAGES[idx][1]}</span></h2>
+      <ul class="timeline">${STAGES.map((st, i) => `<li class="${i <= idx ? "done" : ""} ${i === idx ? "now" : ""}">${st[1]}</li>`).join("")}</ul>
+      ${order ? `<p class="cart-note"><strong>Pesanan atas nama ${esc(order.cust.nama)}</strong></p><ul>${items}</ul><p class="cart-note">Total: ${order.total ? rp(order.total) : "dikonfirmasi admin"}</p>` : ""}
+      ${idx === 0 ? `<p class="cart-note">Transfer sesuai nominal dari admin, lalu kirim bukti transfer lewat WhatsApp. Admin akan mengirim link konfirmasi setelah pembayaran diterima.</p>` : ""}
+      <a class="btn btn-accent" target="_blank" rel="noopener" href="${waUrl(`Halo ${CONFIG.storeName}, ini bukti transfer untuk pesanan ${id}.`)}">Kirim Bukti Transfer</a>
+      <a class="btn btn-ghost" target="_blank" rel="noopener" href="${waUrl(`Halo ${CONFIG.storeName}, mau tanya status pesanan ${id}.`)}">Tanya Admin</a></div>`;
+  } else if (id) {
+    html += `<div class="cart-card" style="margin-top:20px"><p>Pesanan <strong>${esc(id)}</strong> belum tercatat di perangkat ini dan belum ada konfirmasi admin. Kalau kamu memesan dari perangkat lain, tanyakan ke admin.</p>
+      <a class="btn btn-accent" target="_blank" rel="noopener" href="${waUrl(`Halo ${CONFIG.storeName}, mau tanya status pesanan ${id}.`)}">Tanya Admin</a></div>`;
+  }
+
+  if (location.hash === "#admin") {
+    html += `<div class="cart-card cart-form" style="margin-top:20px"><h2>Admin: buat link konfirmasi</h2>
+      <label>Nomor pesanan</label><input id="a-id" value="${esc(id)}">
+      <label>Status</label><select id="a-st">${STAGES.map((x) => `<option value="${x[0]}">${x[1]}</option>`).join("")}</select>
+      <label>PIN admin</label><input id="a-pin" type="password">
+      <button type="button" id="a-go" class="btn btn-primary btn-block" style="margin-top:14px">Buat Link</button>
+      <input id="a-out" readonly style="margin-top:12px" placeholder="Link muncul di sini, salin & kirim ke pembeli"></div>`;
+  }
+  root.innerHTML = html;
+
+  root.querySelector("#find-form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    location.href =
+      "cek-pembayaran.html?id=" +
+      encodeURIComponent(root.querySelector("#oid").value.trim());
+  });
+  const go = root.querySelector("#a-go");
+  if (go)
+    go.addEventListener("click", () => {
+      if (root.querySelector("#a-pin").value !== CONFIG.adminPin)
+        return toast("PIN salah");
+      const aid = root.querySelector("#a-id").value.trim().toUpperCase(),
+        st = root.querySelector("#a-st").value;
+      const out = root.querySelector("#a-out");
+      out.value = `${location.origin}${location.pathname}?id=${encodeURIComponent(aid)}&s=${st}&k=${orderSig(aid, st)}`;
+      out.select();
+    });
 }

@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Keranjang — Bagina</title>
+    <meta
+      name="description"
+      content="Keranjang belanja grosir Bagina: cek pesanan, isi data pengiriman, dan bayar lewat WhatsApp."
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container">
+        <a href="index.html" class="logo"><span class="dot"></span>Bagina</a>
+        <button class="nav-toggle" aria-label="Buka menu">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+          >
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+        <ul class="nav-links">
+          <li><a href="index.html" data-page="index.html">Home</a></li>
+          <li><a href="produk.html" data-page="produk.html">Produk</a></li>
+          <li><a href="about.html" data-page="about.html">Tentang Kami</a></li>
+        </ul>
+        <div class="nav-right">
+          <a href="#" data-wa-general class="btn btn-accent btn-sm">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.87 9.87 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2z"
+              />
+            </svg>
+            <span class="long">Pesan via WhatsApp</span>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <header class="page-header">
+      <div class="container">
+        <span class="pill-tag">Checkout via WhatsApp</span>
+        <h1>Keranjang Belanja</h1>
+        <p>
+          Cek pesananmu, isi data pengiriman, lalu lanjut bayar lewat WhatsApp.
+          Konfirmasi dilakukan admin secara manual.
+        </p>
+      </div>
+    </header>
+
+    <section style="padding-top: 0">
+      <div class="container">
+        <div id="cart-root">
+          <noscript>Aktifkan JavaScript untuk memakai halaman ini.</noscript>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <a href="index.html" class="logo"
+              ><span class="dot"></span>Bagina</a
+            >
+            <p>
+              Grosir pakaian pria &amp; wanita — tanya stok, nego harga, dan
+              pesan lewat chat WhatsApp langsung.
+            </p>
+          </div>
+          <div class="footer-cols">
+            <div class="footer-col">
+              <h5>Halaman</h5>
+              <a href="index.html">Home</a>
+              <a href="produk.html">Produk</a>
+              <a href="about.html">Tentang Kami</a>
+            </div>
+            <div class="footer-col">
+              <h5>Kategori</h5>
+              <a href="produk.html#pria">Pakaian Pria</a>
+              <a href="produk.html#wanita">Pakaian Wanita</a>
+              <a href="produk.html#paket">Paket Reseller</a>
+            </div>
+            <div class="footer-col">
+              <h5>Bantuan</h5>
+              <a href="faq.html">FAQ</a>
+              <a href="terms.html">Syarat &amp; Ketentuan</a>
+              <a href="refund.html">Kebijakan Refund</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span
+            >© 2026 PT. BAHANA GITA NIRWANA — Bagina. Semua transaksi diproses
+            manual via WhatsApp.</span
+          >
+        </div>
+      </div>
+    </footer>
+
+    <a href="#" data-wa-general class="wa-float">
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path
+          d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.87 9.87 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2z"
+        />
+      </svg>
+      <span>Chat Admin</span>
+    </a>
+
+    <script src="script.js"></script>
+  </body>
+</html>
