@@ -132,53 +132,80 @@ function initCarousel() {
 // Foto produk: taruh file di folder images/ dengan nama sesuai nama produk
 // (contoh: "Kaos Oversize" -> images/kaos-oversize.jpg), atau isi parameter
 // terakhir dengan path/URL sendiri. Kalau file tidak ada, tampil placeholder.
-const slug = (t) => t.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
-const P = (group, name, price, detail, image) => ({
-  group, name, price: "Rp " + price, priceNote: "/pcs",
+const slug = (t) =>
+  t
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+// ▶ HARGA — semua produk "mulai dari" harga ini (ubah di sini)
+const START_PRICE = "Mulai dari Rp 2.500.000";
+const P = (group, name, detail, image) => ({
+  group,
+  name,
+  price: START_PRICE,
+  priceNote: "",
   image: image || `images/${slug(name)}.jpg`,
-  features: ["Min. order 12 pcs", detail, "Boleh campur ukuran"],
+  features: ["Harga langsung grosir", detail, "Boleh campur ukuran"],
 });
-const K = (group, name, price, detail, image) => ({
-  group, name, price: "Rp " + price, priceNote: "/paket",
+const K = (group, name, detail, image) => ({
+  group,
+  name,
+  price: START_PRICE,
+  priceNote: "",
   image: image || `images/${slug(name)}.jpg`,
   features: ["Siap jual", detail, "Dikemas rapi"],
 });
 const PRODUCT_DATA = {
   pria: {
     label: "Pakaian Pria",
-    desc: "Kaos, kemeja, dan celana pria harga grosir. Min. order 12 pcs, boleh campur model.",
+    desc: "Kaos, kemeja, dan celana pria harga grosir. Harga langsung grosir, boleh campur ukuran.",
     items: [
-    P("Kaos", "Kaos Polos Cotton Combed 30s", "28.000", "Bahan adem, size M–XXL"),
-    P("Kaos", "Kaos Oversize", "35.000", "Bahan tebal, size all size"),
-    P("Kaos", "Polo Shirt", "45.000", "Kerah rapi, size M–XXL"),
-    P("Kemeja", "Kemeja Flanel", "65.000", "Motif kotak, size M–XL"),
-    P("Kemeja", "Kemeja Oxford", "70.000", "Lengan panjang, size M–XL"),
-    P("Celana", "Celana Jeans", "85.000", "Size 28–36"),
-    P("Celana", "Celana Chino", "75.000", "Size 28–36"),
-    P("Celana", "Celana Training", "40.000", "Size M–XL"),
+      P("Kaos", "Kaos Polos Cotton Combed 30s", "Bahan adem, size M–XXL"),
+      P("Kaos", "Kaos Oversize", "Bahan tebal, size all size"),
+      P("Kaos", "Polo Shirt", "Kerah rapi, size M–XXL"),
+      P("Kemeja", "Kemeja Flanel", "Motif kotak, size M–XL"),
+      P("Kemeja", "Kemeja Oxford", "Lengan panjang, size M–XL"),
+      P("Celana", "Celana Jeans", "Size 28–36"),
+      P("Celana", "Celana Chino", "Size 28–36"),
+      P("Celana", "Celana Training", "Size M–XL"),
     ],
   },
   wanita: {
     label: "Pakaian Wanita",
-    desc: "Atasan, gamis, dress, dan bawahan wanita harga grosir. Min. order 12 pcs, boleh campur model.",
+    desc: "Atasan, gamis, dress, dan bawahan wanita harga grosir. Harga langsung grosir, boleh campur ukuran.",
     items: [
-    P("Atasan", "Blouse Rayon", "45.000", "Size S–XL"),
-    P("Atasan", "Kaos Crop", "30.000", "Size all size"),
-    P("Atasan", "Kemeja Oversize", "55.000", "Size all size"),
-    P("Gamis & Dress", "Gamis Polos", "95.000", "Size M–XXL"),
-    P("Gamis & Dress", "Dress Rayon", "70.000", "Size S–XL"),
-    P("Bawahan & Hijab", "Rok Plisket", "50.000", "Size all size"),
-    P("Bawahan & Hijab", "Celana Kulot", "55.000", "Size S–XL"),
-    P("Bawahan & Hijab", "Hijab Voal", "25.000", "Aneka warna"),
+      P("Atasan", "Blouse Rayon", "Size S–XL"),
+      P("Atasan", "Kaos Crop", "Size all size"),
+      P("Atasan", "Kemeja Oversize", "Size all size"),
+      P("Gamis & Dress", "Gamis Polos", "Size M–XXL"),
+      P("Gamis & Dress", "Dress Rayon", "Size S–XL"),
+      P("Bawahan & Hijab", "Rok Plisket", "Size all size"),
+      P("Bawahan & Hijab", "Celana Kulot", "Size S–XL"),
+      P("Bawahan & Hijab", "Hijab Voal", "Aneka warna"),
     ],
   },
   paket: {
     label: "Paket Reseller",
     desc: "Paket campur model pria dan wanita, siap dijual lagi.",
     items: [
-    K("Starter", "12 pcs campur model", "360.000", "1 lusin, boleh campur"),
-    K("Reseller", "36 pcs campur model", "1.000.000", "3 lusin, boleh campur"),
-    K("Partai Besar", "100 pcs campur model", "2.600.000", "Harga terbaik per pcs"),
+      K(
+        "Paket Campur Model",
+        "Paket Starter",
+        "Campur model pria & wanita",
+        "images/100-pcs-campur-model.jpg",
+      ),
+      // K(
+      //   "Paket Campur Model",
+      //   "Paket Reseller",
+      //   "Campur model pria & wanita",
+      //   "images/100-pcs-campur-model.jpg",
+      // ),
+      // K(
+      //   "Paket Campur Model",
+      //   "Paket Partai Besar",
+      //   "Harga terbaik, siap dijual lagi",
+      //   "images/100-pcs-campur-model.jpg",
+      // ),
     ],
   },
 };

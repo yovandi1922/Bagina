@@ -1359,3 +1359,9 @@ button:focus-visible {
   object-fit: cover;
   display: block;
 }
+
+.item-card .item-price span.per-pcs {
+  color: var(--accent, #FF6B35);
+  font-weight: 600;
+  margin-top: 2px;
+}
