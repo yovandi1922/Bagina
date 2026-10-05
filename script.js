@@ -190,6 +190,60 @@ const PRODUCT_DATA = {
       P("Bawahan & Hijab", "Hijab Voal", "Aneka warna"),
     ],
   },
+  sepatu: {
+    label: "Sepatu",
+    desc: "Sepatu pria & wanita harga grosir. Model casual, formal, dan sporty — siap jual lagi.",
+    items: [
+      P(
+        "Sepatu Pria",
+        "Sneakers Pria",
+        "Bahan kanvas, sol karet, size 39–44",
+        "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=600",
+      ),
+      P(
+        "Sepatu Pria",
+        "Sepatu Formal Pria",
+        "Kulit sintetis, size 39–44",
+        "https://images.pexels.com/photos/267301/pexels-photo-267301.jpeg?auto=compress&cs=tinysrgb&w=600",
+      ),
+      P(
+        "Sepatu Pria",
+        "Sepatu Canvas Pria",
+        "Bahan kanvas, size 39–44",
+        "https://images.pexels.com/photos/1598505/pexels-photo-1598505.jpeg?auto=compress&cs=tinysrgb&w=600",
+      ),
+      P(
+        "Sepatu Pria",
+        "Slip On Pria",
+        "Tanpa tali, size 39–44",
+        "https://images.pexels.com/photos/1456706/pexels-photo-1456706.jpeg?auto=compress&cs=tinysrgb&w=600",
+      ),
+      P(
+        "Sepatu Wanita",
+        "Sneakers Wanita",
+        "Bahan kanvas, sol karet, size 36–40",
+        "https://images.pexels.com/photos/1464625/pexels-photo-1464625.jpeg?auto=compress&cs=tinysrgb&w=600",
+      ),
+      P(
+        "Sepatu Wanita",
+        "Flat Shoes Wanita",
+        "Kulit sintetis, size 36–40",
+        "https://images.pexels.com/photos/19090/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=600",
+      ),
+      P(
+        "Sepatu Wanita",
+        "Heels Wanita",
+        "Tinggi 5cm, size 36–40",
+        "https://images.pexels.com/photos/336372/pexels-photo-336372.jpeg?auto=compress&cs=tinysrgb&w=600",
+      ),
+      P(
+        "Sepatu Wanita",
+        "Sepatu Slip On Wanita",
+        "Tanpa tali, size 36–40",
+        "https://images.pexels.com/photos/2048548/pexels-photo-2048548.jpeg?auto=compress&cs=tinysrgb&w=600",
+      ),
+    ],
+  },
   paket: {
     label: "Paket Reseller",
     desc: "Paket campur model pria dan wanita, siap dijual lagi.",
