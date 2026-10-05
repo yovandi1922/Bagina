@@ -443,7 +443,7 @@
     </section>
 
     <!-- ========================================================= -->
-    <!-- SHOWCASE SEPATU                                           -->
+    <!-- SHOWCASE SEPATU BRANDED                                   -->
     <!-- ========================================================= -->
     <style>
       .shoes-section {
@@ -503,7 +503,8 @@
       .shoe-photo {
         position: relative;
         aspect-ratio: 1 / 1;
-        background: var(--bg-alt);
+        /* Fallback gradient kalau gambar gagal load */
+        background: linear-gradient(135deg, #eeecfd 0%, #e1f8f1 100%);
         overflow: hidden;
       }
       .shoe-photo img {
@@ -511,6 +512,7 @@
         height: 100%;
         object-fit: cover;
         display: block;
+        background: transparent;
         transition: transform 0.5s ease;
       }
       .shoe-card:hover .shoe-photo img {
@@ -528,10 +530,33 @@
         border-radius: 999px;
         letter-spacing: 0.03em;
         backdrop-filter: blur(4px);
+        z-index: 2;
+      }
+      .shoe-tag.nike {
+        background: rgba(22, 22, 43, 0.92);
+      }
+      .shoe-tag.adidas {
+        background: rgba(0, 90, 156, 0.92);
+      }
+      .shoe-tag.macbeth {
+        background: rgba(120, 30, 30, 0.92);
+      }
+      .shoe-tag.vans {
+        background: rgba(180, 30, 30, 0.92);
+      }
+      .shoe-tag.converse {
+        background: rgba(30, 30, 30, 0.92);
+      }
+      .shoe-tag.nb {
+        background: rgba(200, 40, 40, 0.92);
+      }
+      .shoe-tag.puma {
+        background: rgba(30, 60, 120, 0.92);
       }
       .shoe-tag.wanita {
         background: rgba(255, 107, 53, 0.92);
       }
+
       .shoe-body {
         padding: 18px 20px 20px;
         display: flex;
@@ -560,7 +585,6 @@
         padding: 11px 18px;
       }
 
-      /* CTA kecil di dalam showcase */
       .shoes-foot {
         margin-top: 36px;
         text-align: center;
@@ -588,10 +612,10 @@
               </svg>
               Kategori baru
             </span>
-            <h2>Sepatu pria &amp; wanita, siap jual.</h2>
+            <h2>Sepatu branded, siap jual.</h2>
             <p>
-              Model casual, formal, dan sporty dengan harga grosir. Cocok untuk
-              stok toko offline maupun lapak online.
+              Model Nike, Adidas, Macbeth, Vans, Converse, dan lainnya — harga
+              grosir. Cocok untuk stok toko offline maupun lapak online.
             </p>
           </div>
           <a href="produk.html#sepatu" class="btn btn-primary">
@@ -613,91 +637,169 @@
         </div>
 
         <div class="shoes-grid">
-          <!-- Sepatu Pria -->
+          <!-- Nike Air Force 1 -->
           <article class="shoe-card">
             <div class="shoe-photo">
-              <span class="shoe-tag">Pria</span>
+              <span class="shoe-tag nike">Nike</span>
               <img
-                src="https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=600"
-                alt="Sneakers Pria"
+                src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=600&q=80"
+                alt="Nike Air Force 1"
                 loading="lazy"
+                onerror="this.style.display='none'"
               />
             </div>
             <div class="shoe-body">
-              <h3>Sneakers Pria</h3>
-              <p>Bahan kanvas, sol karet · size 39–44</p>
+              <h3>Nike Air Force 1</h3>
+              <p>Sol tebal, klasik · size 39–44</p>
               <div class="shoe-price">Mulai dari Rp 2.500.000</div>
-              <a
-                href="#"
-                data-wa-general
-                class="btn btn-accent btn-block"
+              <a href="#" data-wa-general class="btn btn-accent btn-block"
                 >Tanya Stok</a
               >
             </div>
           </article>
 
+          <!-- Adidas Ultraboost -->
           <article class="shoe-card">
             <div class="shoe-photo">
-              <span class="shoe-tag">Pria</span>
+              <span class="shoe-tag adidas">Adidas</span>
               <img
-                src="https://images.pexels.com/photos/267301/pexels-photo-267301.jpeg?auto=compress&cs=tinysrgb&w=600"
-                alt="Sepatu Formal Pria"
+                src="https://images.unsplash.com/photo-1587563871167-1ee9c731aefb?auto=format&fit=crop&w=600&q=80"
+                alt="Adidas Ultraboost"
                 loading="lazy"
+                onerror="this.style.display='none'"
               />
             </div>
             <div class="shoe-body">
-              <h3>Sepatu Formal Pria</h3>
-              <p>Kulit sintetis · size 39–44</p>
+              <h3>Adidas Ultraboost</h3>
+              <p>Bahan knit, empuk · size 39–44</p>
               <div class="shoe-price">Mulai dari Rp 2.500.000</div>
-              <a
-                href="#"
-                data-wa-general
-                class="btn btn-accent btn-block"
+              <a href="#" data-wa-general class="btn btn-accent btn-block"
                 >Tanya Stok</a
               >
             </div>
           </article>
 
-          <!-- Sepatu Wanita -->
+          <!-- Macbeth Brighton -->
+          <article class="shoe-card">
+            <div class="shoe-photo">
+              <span class="shoe-tag macbeth">Macbeth</span>
+              <img
+                src="https://images.unsplash.com/photo-1600269452121-4f2416e55c28?auto=format&fit=crop&w=600&q=80"
+                alt="Macbeth Brighton"
+                loading="lazy"
+                onerror="this.style.display='none'"
+              />
+            </div>
+            <div class="shoe-body">
+              <h3>Macbeth Brighton</h3>
+              <p>Kanvas tebal, casual · size 39–44</p>
+              <div class="shoe-price">Mulai dari Rp 2.500.000</div>
+              <a href="#" data-wa-general class="btn btn-accent btn-block"
+                >Tanya Stok</a
+              >
+            </div>
+          </article>
+
+          <!-- Vans Old Skool -->
+          <article class="shoe-card">
+            <div class="shoe-photo">
+              <span class="shoe-tag vans">Vans</span>
+              <img
+                src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=600&q=80"
+                alt="Vans Old Skool"
+                loading="lazy"
+                onerror="this.style.display='none'"
+              />
+            </div>
+            <div class="shoe-body">
+              <h3>Vans Old Skool</h3>
+              <p>Kanvas + suede · size 39–44</p>
+              <div class="shoe-price">Mulai dari Rp 2.500.000</div>
+              <a href="#" data-wa-general class="btn btn-accent btn-block"
+                >Tanya Stok</a
+              >
+            </div>
+          </article>
+
+          <!-- Converse Chuck Taylor -->
+          <article class="shoe-card">
+            <div class="shoe-photo">
+              <span class="shoe-tag converse">Converse</span>
+              <img
+                src="https://images.unsplash.com/photo-1607522370275-f14206abe5d3?auto=format&fit=crop&w=600&q=80"
+                alt="Converse Chuck Taylor"
+                loading="lazy"
+                onerror="this.style.display='none'"
+              />
+            </div>
+            <div class="shoe-body">
+              <h3>Converse Chuck Taylor</h3>
+              <p>High top klasik · size 39–44</p>
+              <div class="shoe-price">Mulai dari Rp 2.500.000</div>
+              <a href="#" data-wa-general class="btn btn-accent btn-block"
+                >Tanya Stok</a
+              >
+            </div>
+          </article>
+
+          <!-- New Balance 574 -->
+          <article class="shoe-card">
+            <div class="shoe-photo">
+              <span class="shoe-tag nb">New Balance</span>
+              <img
+                src="https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&w=600&q=80"
+                alt="New Balance 574"
+                loading="lazy"
+                onerror="this.style.display='none'"
+              />
+            </div>
+            <div class="shoe-body">
+              <h3>New Balance 574</h3>
+              <p>Suede + mesh · size 39–44</p>
+              <div class="shoe-price">Mulai dari Rp 2.500.000</div>
+              <a href="#" data-wa-general class="btn btn-accent btn-block"
+                >Tanya Stok</a
+              >
+            </div>
+          </article>
+
+          <!-- Puma Suede Classic -->
+          <article class="shoe-card">
+            <div class="shoe-photo">
+              <span class="shoe-tag puma">Puma</span>
+              <img
+                src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=600&q=80"
+                alt="Puma Suede Classic"
+                loading="lazy"
+                onerror="this.style.display='none'"
+              />
+            </div>
+            <div class="shoe-body">
+              <h3>Puma Suede Classic</h3>
+              <p>Suede premium · size 39–44</p>
+              <div class="shoe-price">Mulai dari Rp 2.500.000</div>
+              <a href="#" data-wa-general class="btn btn-accent btn-block"
+                >Tanya Stok</a
+              >
+            </div>
+          </article>
+
+          <!-- Adidas Superstar Wanita -->
           <article class="shoe-card">
             <div class="shoe-photo">
               <span class="shoe-tag wanita">Wanita</span>
               <img
-                src="https://images.pexels.com/photos/1464625/pexels-photo-1464625.jpeg?auto=compress&cs=tinysrgb&w=600"
-                alt="Sneakers Wanita"
+                src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=600&q=80"
+                alt="Adidas Superstar Wanita"
                 loading="lazy"
+                onerror="this.style.display='none'"
               />
             </div>
             <div class="shoe-body">
-              <h3>Sneakers Wanita</h3>
-              <p>Bahan kanvas, sol karet · size 36–40</p>
+              <h3>Adidas Superstar Wanita</h3>
+              <p>Shell toe klasik · size 36–40</p>
               <div class="shoe-price">Mulai dari Rp 2.500.000</div>
-              <a
-                href="#"
-                data-wa-general
-                class="btn btn-accent btn-block"
-                >Tanya Stok</a
-              >
-            </div>
-          </article>
-
-          <article class="shoe-card">
-            <div class="shoe-photo">
-              <span class="shoe-tag wanita">Wanita</span>
-              <img
-                src="https://images.pexels.com/photos/336372/pexels-photo-336372.jpeg?auto=compress&cs=tinysrgb&w=600"
-                alt="Heels Wanita"
-                loading="lazy"
-              />
-            </div>
-            <div class="shoe-body">
-              <h3>Heels Wanita</h3>
-              <p>Tinggi 5 cm · size 36–40</p>
-              <div class="shoe-price">Mulai dari Rp 2.500.000</div>
-              <a
-                href="#"
-                data-wa-general
-                class="btn btn-accent btn-block"
+              <a href="#" data-wa-general class="btn btn-accent btn-block"
                 >Tanya Stok</a
               >
             </div>
