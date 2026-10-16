@@ -214,7 +214,7 @@ const PRODUCT_DATA = {
       ),
       P(
         "Sneakers Pria",
-        "Macbeth Brighton",
+        "NIKE",
         "Kanvas tebal, size 39–44",
         "https://images.unsplash.com/photo-1600269452121-4f2416e55c28?auto=format&fit=crop&w=600&q=80",
       ),
