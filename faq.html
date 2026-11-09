@@ -8,6 +8,13 @@
       name="description"
       content="Pertanyaan yang sering diajukan tentang cara order, pembayaran, pengiriman, dan refund di grosir pakaian Bagina."
     />
+    <meta name="theme-color" content="#f7f6f1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    />
     <link rel="stylesheet" href="style.css" />
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -24,12 +31,12 @@
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
-            stroke-width="2"
+            stroke-width="2.4"
             stroke-linecap="round"
           >
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
+            <line x1="4" y1="7" x2="20" y2="7"></line>
+            <line x1="4" y1="12" x2="20" y2="12"></line>
+            <line x1="4" y1="17" x2="14" y2="17"></line>
           </svg>
         </button>
         <ul class="nav-links">
@@ -41,7 +48,7 @@
           <a href="#" data-wa-general class="btn btn-accent btn-sm">
             <svg viewBox="0 0 24 24" fill="currentColor">
               <path
-                d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.87 9.87 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2z"
+                d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.87 9.87 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2zm0 18.06a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.13.82.84-3.06-.2-.31a8.18 8.18 0 0 1-1.26-4.37c0-4.53 3.7-8.22 8.25-8.22 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.41 5.81c0 4.53-3.7 8.24-8.25 8.24z"
               />
             </svg>
             <span class="long">Pesan via WhatsApp</span>
@@ -77,9 +84,25 @@
 
     <section style="padding-top: 0">
       <div class="container">
-        <div class="faq-wrap">
+        <div class="faq-layout">
+          <aside class="faq-side">
+            <nav class="faq-nav" aria-label="Kategori FAQ">
+              <span class="tile-label">Kategori</span>
+              <a href="#faq-pemesanan">Pemesanan</a>
+              <a href="#faq-pembayaran">Pembayaran</a>
+              <a href="#faq-pengiriman">Pengiriman</a>
+              <a href="#faq-produk">Produk</a>
+              <a href="#faq-bantuan">Refund &amp; Bantuan</a>
+            </nav>
+            <div class="faq-side-card">
+              <strong>Masih bingung?</strong>
+              <p>Admin online tiap hari pukul 07.00–24.00 WIB.</p>
+              <a href="#" data-wa-general class="btn btn-accent btn-sm btn-block">Chat Admin</a>
+            </div>
+          </aside>
+          <div class="faq-wrap">
           <!-- PEMESANAN -->
-          <div class="faq-cat">
+          <div class="faq-cat" id="faq-pemesanan">
             <div class="faq-cat-head">
               <div class="fc-icon i-order">
                 <svg
@@ -188,7 +211,7 @@
           </div>
 
           <!-- PEMBAYARAN -->
-          <div class="faq-cat">
+          <div class="faq-cat" id="faq-pembayaran">
             <div class="faq-cat-head">
               <div class="fc-icon i-pay">
                 <svg
@@ -289,7 +312,7 @@
           </div>
 
           <!-- PENGIRIMAN -->
-          <div class="faq-cat">
+          <div class="faq-cat" id="faq-pengiriman">
             <div class="faq-cat-head">
               <div class="fc-icon i-ship">
                 <svg
@@ -392,7 +415,7 @@
           </div>
 
           <!-- PRODUK -->
-          <div class="faq-cat">
+          <div class="faq-cat" id="faq-produk">
             <div class="faq-cat-head">
               <div class="fc-icon i-prod">
                 <svg
@@ -492,7 +515,7 @@
           </div>
 
           <!-- REFUND & BANTUAN -->
-          <div class="faq-cat">
+          <div class="faq-cat" id="faq-bantuan">
             <div class="faq-cat-head">
               <div class="fc-icon i-help">
                 <svg
@@ -635,6 +658,7 @@
             </a>
           </div>
         </div>
+        </div>
       </div>
     </section>
 
@@ -649,6 +673,14 @@
               Grosir pakaian pria &amp; wanita — tanya stok, nego harga, dan
               pesan lewat chat WhatsApp langsung.
             </p>
+            <a href="#" data-wa-general class="btn btn-accent btn-sm">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.87 9.87 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2z"
+                />
+              </svg>
+              Chat Admin
+            </a>
           </div>
           <div class="footer-cols">
             <div class="footer-col">
@@ -661,6 +693,7 @@
               <h5>Kategori</h5>
               <a href="produk.html#pria">Pakaian Pria</a>
               <a href="produk.html#wanita">Pakaian Wanita</a>
+              <a href="produk.html#sepatu">Sepatu</a>
               <a href="produk.html#paket">Paket Reseller</a>
             </div>
             <div class="footer-col">
@@ -671,6 +704,7 @@
             </div>
           </div>
         </div>
+        <div class="footer-wordmark" aria-hidden="true">Bagina</div>
         <div class="footer-bottom">
           <span
             >© 2026 PT. BAHANA GITA NIRWANA — Bagina. Semua transaksi diproses

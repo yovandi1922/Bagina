@@ -8,6 +8,13 @@
       name="description"
       content="Katalog grosir Bagina: pakaian pria, pakaian wanita, sepatu, dan paket reseller. Pesan langsung via WhatsApp."
     />
+    <meta name="theme-color" content="#f7f6f1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    />
     <link rel="stylesheet" href="style.css" />
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -24,21 +31,17 @@
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
-            stroke-width="2"
+            stroke-width="2.4"
             stroke-linecap="round"
           >
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
+            <line x1="4" y1="7" x2="20" y2="7"></line>
+            <line x1="4" y1="12" x2="20" y2="12"></line>
+            <line x1="4" y1="17" x2="14" y2="17"></line>
           </svg>
         </button>
         <ul class="nav-links">
           <li><a href="index.html" data-page="index.html">Home</a></li>
-          <li>
-            <a href="produk.html" data-page="produk.html" class="active"
-              >Produk</a
-            >
-          </li>
+          <li><a href="produk.html" data-page="produk.html" class="active">Produk</a></li>
           <li><a href="about.html" data-page="about.html">Tentang Kami</a></li>
         </ul>
         <div class="nav-right">
@@ -55,27 +58,40 @@
     </nav>
 
     <header class="page-header">
-      <div class="container">
-        <span class="pill-tag">
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2.4"
-            stroke-linecap="round"
-          >
-            <path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6"></path>
-            <polyline points="16 6 12 2 8 6"></polyline>
-            <line x1="12" y1="2" x2="12" y2="15"></line>
-          </svg>
-          Harga langsung grosir, mulai Rp 2.500.000
-        </span>
-        <h1>Pilih kategori, lihat produknya, tinggal chat.</h1>
-        <p>
-          Klik salah satu kategori di bawah untuk menampilkan daftar produknya.
-          Setiap produk punya tombol pesan langsung ke WhatsApp — nggak perlu
-          isi form panjang.
-        </p>
+      <div class="container split">
+        <div class="page-header-main">
+          <span class="pill-tag">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.4"
+              stroke-linecap="round"
+            >
+              <path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6"></path>
+              <polyline points="16 6 12 2 8 6"></polyline>
+              <line x1="12" y1="2" x2="12" y2="15"></line>
+            </svg>
+            Harga langsung grosir, mulai Rp 2.500.000
+          </span>
+          <h1>Pilih kategori, lihat produknya, tinggal chat.</h1>
+          <p>
+            Klik salah satu kategori di bawah untuk menampilkan daftar produknya.
+            Setiap produk punya tombol pesan langsung ke WhatsApp — nggak perlu
+            isi form panjang.
+          </p>
+        </div>
+        <div class="info-card">
+          <span class="tile-label">Berlaku untuk semua produk</span>
+          <ul class="check-list">
+            <li>Harga langsung grosir</li>
+            <li>Boleh campur ukuran &amp; model</li>
+            <li>Pesan langsung via WhatsApp</li>
+          </ul>
+          <div class="info-card-foot">
+            <strong>Rp 2.500.000</strong><span>minimal order grosir</span>
+          </div>
+        </div>
       </div>
     </header>
 
@@ -181,6 +197,14 @@
               Grosir pakaian pria &amp; wanita — tanya stok, nego harga, dan
               pesan lewat chat WhatsApp langsung.
             </p>
+            <a href="#" data-wa-general class="btn btn-accent btn-sm">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.87 9.87 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2z"
+                />
+              </svg>
+              Chat Admin
+            </a>
           </div>
           <div class="footer-cols">
             <div class="footer-col">
@@ -204,6 +228,7 @@
             </div>
           </div>
         </div>
+        <div class="footer-wordmark" aria-hidden="true">Bagina</div>
         <div class="footer-bottom">
           <span
             >© 2026 PT. BAHANA GITA NIRWANA — Bagina. Semua transaksi diproses

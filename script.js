@@ -46,6 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   initNavToggle();
+  initNavScroll();
   initActiveNav();
   initCarousel();
   initProductTabs();
@@ -66,6 +67,15 @@ function initNavToggle() {
   links.querySelectorAll("a").forEach((a) => {
     a.addEventListener("click", () => links.classList.remove("open"));
   });
+}
+
+/* ---------- Navbar: tambah bayangan saat halaman di-scroll (kosmetik) ---------- */
+function initNavScroll() {
+  const nav = document.querySelector(".navbar");
+  if (!nav) return;
+  const onScroll = () => nav.classList.toggle("scrolled", window.scrollY > 8);
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
 }
 
 /* ---------- Highlight nav link aktif ---------- */
@@ -330,7 +340,7 @@ function initProductTabs() {
     });
 
     Object.keys(bySub).forEach((sub) => {
-      html += `<h3 style="font-size:1.05rem;margin:0 0 14px;">${sub}</h3><div class="item-grid">`;
+      html += `<h3 class="sub-head">${sub}</h3><div class="item-grid">`;
       bySub[sub].forEach((item) => {
         const hasFeatures = item.features && item.features.length > 0;
         const cardClass = hasFeatures ? "item-card kasir-card" : "item-card";
@@ -343,10 +353,12 @@ function initProductTabs() {
             <div class="item-desc">${sub}</div>
             <div class="item-price">${item.price}${item.priceNote ? `<span>${item.priceNote}</span>` : ""}</div>
             ${hasFeatures ? `<ul class="kasir-features">${item.features.map((f) => `<li>${CHECK_ICON}<span>${f}</span></li>`).join("")}</ul>` : ""}
-            <button class="btn btn-primary btn-block" style="margin-bottom:8px" data-cart data-name="${item.name}" data-sub="${sub}">+ Tambah ke Keranjang</button>
-            <button class="btn btn-accent btn-block" data-order="${sub} — ${item.name}" data-price="${item.price}${item.priceNote ? " " + item.priceNote : ""}">
-              ${hasFeatures ? "Pesan via WhatsApp" : "Pesan Sekarang"}
-            </button>
+            <div class="item-actions">
+              <button class="btn btn-primary btn-block" data-cart data-name="${item.name}" data-sub="${sub}">+ Tambah ke Keranjang</button>
+              <button class="btn btn-accent btn-block" data-order="${sub} — ${item.name}" data-price="${item.price}${item.priceNote ? " " + item.priceNote : ""}">
+                ${hasFeatures ? "Pesan via WhatsApp" : "Pesan Sekarang"}
+              </button>
+            </div>
           </div>`;
       });
       html += `</div>`;

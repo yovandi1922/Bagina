@@ -8,6 +8,13 @@
       name="description"
       content="Bagina menyediakan pakaian pria dan wanita dengan harga grosir untuk reseller dan toko. Pesan langsung via WhatsApp."
     />
+    <meta name="theme-color" content="#f7f6f1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    />
     <link rel="stylesheet" href="style.css" />
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -24,12 +31,12 @@
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
-            stroke-width="2"
+            stroke-width="2.4"
             stroke-linecap="round"
           >
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
+            <line x1="4" y1="7" x2="20" y2="7"></line>
+            <line x1="4" y1="12" x2="20" y2="12"></line>
+            <line x1="4" y1="17" x2="14" y2="17"></line>
           </svg>
         </button>
         <ul class="nav-links">
@@ -52,143 +59,88 @@
       </div>
     </nav>
 
-    <!-- BANNER GROSIR KAIN -->
-    <style>
-      .kain-banner {
-        position: relative;
-        width: 100%;
-        min-height: 100vh;
-        min-height: 100svh;
-        display: flex;
-        align-items: center;
-        /* GANTI 'banner.jpg' dengan nama file gambar Anda */
-        background: #222 url("banner.jpg") center / cover no-repeat;
-        color: #fff;
-      }
-      .kain-banner::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.55);
-      }
-      .kain-banner .container {
-        position: relative;
-      }
-      .kain-inner {
-        max-width: 520px;
-        padding: 48px 0;
-      }
-      .kain-inner h2 {
-        margin: 0 0 12px;
-        font-size: clamp(26px, 4vw, 40px);
-        line-height: 1.2;
-        color: #fff;
-      }
-      .kain-inner p {
-        margin: 0 0 24px;
-        line-height: 1.6;
-        color: #eee;
-      }
-
-      /* ALAMAT — di bawah tombol Tanya Harga Grosir */
-      .kain-address {
-        display: flex;
-        align-items: flex-start;
-        gap: 10px;
-        margin: 20px 0 0;
-        padding: 12px 16px;
-        border-left: 3px solid #ffc93c;
-        background: rgba(255, 255, 255, 0.08);
-        backdrop-filter: blur(6px);
-        -webkit-backdrop-filter: blur(6px);
-        border-radius: 0 10px 10px 0;
-        color: #f1f1f1;
-        font-size: 14px;
-        line-height: 1.55;
-        max-width: 460px;
-      }
-      .kain-address svg {
-        width: 18px;
-        height: 18px;
-        flex-shrink: 0;
-        margin-top: 2px;
-        color: #ffc93c;
-      }
-      .kain-address span {
-        display: block;
-      }
-
-      @media (max-width: 800px) {
-        .kain-banner {
-          min-height: 75vh;
-          min-height: 75svh;
-          align-items: flex-end;
-          background-position: center top;
-        }
-        .kain-banner::before {
-          background: linear-gradient(
-            to top,
-            rgba(0, 0, 0, 0.85) 0%,
-            rgba(0, 0, 0, 0.6) 40%,
-            rgba(0, 0, 0, 0.1) 75%,
-            rgba(0, 0, 0, 0) 100%
-          );
-        }
-        .kain-inner {
-          max-width: 100%;
-          padding: 0 0 32px;
-        }
-        .kain-inner h2 {
-          font-size: 28px;
-        }
-        .kain-inner p {
-          font-size: 15px;
-          margin-bottom: 20px;
-        }
-        .kain-address {
-          font-size: 13px;
-          padding: 10px 12px;
-          margin-top: 16px;
-          max-width: 100%;
-          border-radius: 10px;
-        }
-        .kain-address svg {
-          width: 16px;
-          height: 16px;
-        }
-        .kain-inner .btn {
-          display: block;
-          width: 100%;
-          text-align: center;
-        }
-      }
-    </style>
-    <section class="kain-banner">
+    <!-- ===================== HERO (editorial + bento) ===================== -->
+    <header class="hero">
       <div class="container">
-        <div class="kain-inner">
-          <h2>Grosir Kain &amp; Fashion</h2>
-          <p>
-            Tersedia berbagai jenis kain dengan harga grosir. Bisa beli per
-            meter atau per roll, kirim ke seluruh Indonesia.
+        <div class="hero-top">
+          <span class="pill-tag">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            Harga langsung grosir, mulai Rp 2.500.000
+          </span>
+          <h1>
+            Stok baju pria &amp; wanita untuk dijual lagi,
+            <span class="hl">harga langsung grosir.</span>
+          </h1>
+        </div>
+
+        <div class="hero-sub">
+          <p class="lead">
+            Bagina melayani kulakan pakaian untuk reseller, dropshipper, dan
+            pemilik toko. Pilih model, chat kami di WhatsApp, pesanan diproses —
+            nggak pakai ribet.
           </p>
-
-          <a href="#" data-wa-general class="btn btn-accent"
-            >Tanya Harga Grosir</a
-          >
-
-          <!-- ALAMAT DI BAWAH TOMBOL -->
-          <div class="kain-address">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+          <div class="hero-cta">
+            <a href="produk.html" class="btn btn-primary btn-lg"
+              >Lihat Semua Produk
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg
+            ></a>
+            <a href="#" data-wa-general class="btn btn-ghost btn-lg"
+              >Tanya Dulu di WhatsApp</a
             >
-              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-              <circle cx="12" cy="10" r="3"></circle>
-            </svg>
+          </div>
+        </div>
+
+        <div class="hero-bento">
+          <!-- FOTO: GROSIR KAIN & FASHION -->
+          <div class="kain-banner">
+            <div class="sticker-spin" aria-hidden="true">
+              <svg class="spin-text" viewBox="0 0 120 120">
+                <defs>
+                  <path id="spin-path" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0" />
+                </defs>
+                <text>
+                  <textPath href="#spin-path" textLength="286">GROSIR • RESELLER • DROPSHIP •</textPath>
+                </text>
+              </svg>
+              <svg class="spin-core" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c.5 5.2 2.8 7.5 10 10-7.2 2.5-9.5 4.8-10 10-.5-5.2-2.8-7.5-10-10 7.2-2.5 9.5-4.8 10-10z" /></svg>
+            </div>
+            <div class="kain-inner">
+              <h2>Grosir Kain &amp; Fashion</h2>
+              <p>
+                Tersedia berbagai jenis kain dengan harga grosir. Bisa beli per
+                meter atau per roll, kirim ke seluruh Indonesia.
+              </p>
+              <a href="#" data-wa-general class="btn btn-accent"
+                >Tanya Harga Grosir</a
+              >
+            </div>
+          </div>
+
+          <!-- STATISTIK -->
+          <div class="hero-meta">
+            <div class="bento-tile t-accent">
+              <span class="tile-label">Harga</span>
+              <strong>Mulai Rp 2.500.000</strong>
+              <span>harga langsung grosir</span>
+            </div>
+            <div class="bento-tile t-primary">
+              <span class="tile-label">Katalog</span>
+              <strong>4 kategori</strong>
+              <span>pria, wanita, sepatu &amp; paket reseller</span>
+            </div>
+            <div class="bento-tile t-rose">
+              <span class="tile-label"><span class="live"></span>Admin online</span>
+              <strong>07.00–24.00</strong>
+              <span>siap balas chat tiap hari</span>
+            </div>
+          </div>
+
+          <!-- ALAMAT -->
+          <div class="kain-address">
+            <div class="addr-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            </div>
+            <span class="tile-label">Toko kami</span>
             <span>
               Jl. Adi Sumarmo, Pulosari, Malangjiwan, Kec. Colomadu, Kabupaten
               Karanganyar, Jawa Tengah 57177
@@ -196,465 +148,161 @@
           </div>
         </div>
       </div>
-    </section>
-
-    <!-- HERO -->
-    <header class="hero">
-      <div class="container">
-        <div class="hero-copy">
-          <span class="pill-tag">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2.4"
-              stroke-linecap="round"
-            >
-              <circle cx="12" cy="12" r="10"></circle>
-              <polyline points="12 6 12 12 16 14"></polyline>
-            </svg>
-            Harga langsung grosir, mulai Rp 2.500.000
-          </span>
-          <h1>
-            Stok baju pria &amp; wanita untuk dijual lagi, harga langsung
-            grosir.
-          </h1>
-          <p class="lead">
-            Bagina melayani kulakan pakaian untuk reseller, dropshipper, dan
-            pemilik toko. Pilih model, chat kami di WhatsApp, pesanan diproses —
-            nggak pakai ribet.
-          </p>
-          <div class="hero-cta">
-            <a href="produk.html" class="btn btn-primary">Lihat Semua Produk</a>
-            <a href="#" data-wa-general class="btn btn-ghost"
-              >Tanya Dulu di WhatsApp</a
-            >
-          </div>
-          <div class="hero-meta">
-            <div>
-              <strong>Mulai Rp 2.500.000</strong
-              ><span>harga langsung grosir</span>
-            </div>
-            <div>
-              <strong>4 kategori</strong
-              ><span>pria, wanita, sepatu &amp; paket reseller</span>
-            </div>
-            <div>
-              <strong>07.00–24.00</strong><span>siap balas chat tiap hari</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="hero-art">
-          <svg
-            viewBox="0 0 420 380"
-            width="100%"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <circle cx="343" cy="70" r="30" fill="#EEECFD" />
-            <circle cx="40" cy="320" r="22" fill="#FFEDE3" />
-            <rect x="40" y="30" width="340" height="12" rx="6" fill="#E5E2F7" />
-            <g transform="translate(40,50) scale(1.7)">
-              <g class="float-slow">
-                <path
-                  d="M20 30 L45 18 Q60 32 75 18 L100 30 L90 52 L78 46 V100 H42 V46 L30 52 Z"
-                  fill="#4F46E5"
-                />
-              </g>
-            </g>
-            <g transform="translate(215,130) scale(1.7)">
-              <g class="float-slow delay">
-                <path
-                  d="M20 30 L45 18 Q60 32 75 18 L100 30 L90 52 L78 46 V100 H42 V46 L30 52 Z"
-                  fill="#FF6B35"
-                />
-              </g>
-            </g>
-            <g transform="translate(60,215) scale(1.1)">
-              <g class="float-slow delay">
-                <path
-                  d="M20 30 L45 18 Q60 32 75 18 L100 30 L90 52 L78 46 V100 H42 V46 L30 52 Z"
-                  fill="#06B58A"
-                />
-              </g>
-            </g>
-          </svg>
-        </div>
-      </div>
     </header>
 
-    <!-- TRUST STRIP -->
+    <!-- ===================== TRUST STRIP (MARQUEE) ===================== -->
     <div class="trust-strip">
-      <div class="container">
-        <div class="trust-item">
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2.2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-            <polyline points="22 4 12 14.01 9 11.01"></polyline>
-          </svg>
-          Harga grosir jelas, makin banyak makin murah
-        </div>
-        <div class="trust-item">
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2.2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-            <polyline points="22 4 12 14.01 9 11.01"></polyline>
-          </svg>
-          Barang dikirim setelah pembayaran terverifikasi
-        </div>
-        <div class="trust-item">
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2.2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-            <polyline points="22 4 12 14.01 9 11.01"></polyline>
-          </svg>
-          Chat langsung dengan admin, bukan robot
+      <div class="marquee">
+        <div class="marquee-track">
+          <div class="marquee-group">
+            <div class="trust-item"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c.5 5.2 2.8 7.5 10 10-7.2 2.5-9.5 4.8-10 10-.5-5.2-2.8-7.5-10-10 7.2-2.5 9.5-4.8 10-10z" /></svg>Harga grosir jelas, makin banyak makin murah</div>
+            <div class="trust-item"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c.5 5.2 2.8 7.5 10 10-7.2 2.5-9.5 4.8-10 10-.5-5.2-2.8-7.5-10-10 7.2-2.5 9.5-4.8 10-10z" /></svg>Barang dikirim setelah pembayaran terverifikasi</div>
+            <div class="trust-item"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c.5 5.2 2.8 7.5 10 10-7.2 2.5-9.5 4.8-10 10-.5-5.2-2.8-7.5-10-10 7.2-2.5 9.5-4.8 10-10z" /></svg>Chat langsung dengan admin, bukan robot</div>
+            <div class="trust-item"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c.5 5.2 2.8 7.5 10 10-7.2 2.5-9.5 4.8-10 10-.5-5.2-2.8-7.5-10-10 7.2-2.5 9.5-4.8 10-10z" /></svg>Kirim ke seluruh Indonesia</div>
+            <div class="trust-item"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c.5 5.2 2.8 7.5 10 10-7.2 2.5-9.5 4.8-10 10-.5-5.2-2.8-7.5-10-10 7.2-2.5 9.5-4.8 10-10z" /></svg>Boleh campur ukuran</div>
+          </div>
+          <!-- duplikat untuk loop mulus (disembunyikan dari pembaca layar) -->
+          <div class="marquee-group" aria-hidden="true">
+            <div class="trust-item"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c.5 5.2 2.8 7.5 10 10-7.2 2.5-9.5 4.8-10 10-.5-5.2-2.8-7.5-10-10 7.2-2.5 9.5-4.8 10-10z" /></svg>Harga grosir jelas, makin banyak makin murah</div>
+            <div class="trust-item"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c.5 5.2 2.8 7.5 10 10-7.2 2.5-9.5 4.8-10 10-.5-5.2-2.8-7.5-10-10 7.2-2.5 9.5-4.8 10-10z" /></svg>Barang dikirim setelah pembayaran terverifikasi</div>
+            <div class="trust-item"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c.5 5.2 2.8 7.5 10 10-7.2 2.5-9.5 4.8-10 10-.5-5.2-2.8-7.5-10-10 7.2-2.5 9.5-4.8 10-10z" /></svg>Chat langsung dengan admin, bukan robot</div>
+            <div class="trust-item"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c.5 5.2 2.8 7.5 10 10-7.2 2.5-9.5 4.8-10 10-.5-5.2-2.8-7.5-10-10 7.2-2.5 9.5-4.8 10-10z" /></svg>Kirim ke seluruh Indonesia</div>
+            <div class="trust-item"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c.5 5.2 2.8 7.5 10 10-7.2 2.5-9.5 4.8-10 10-.5-5.2-2.8-7.5-10-10 7.2-2.5 9.5-4.8 10-10z" /></svg>Boleh campur ukuran</div>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- KATEGORI -->
+    <!-- ===================== KATEGORI (zig-zag dengan foto) ===================== -->
     <section>
       <div class="container">
-        <div class="section-head">
-          <h2>Pilih kategori grosir sesuai pasar kamu.</h2>
+        <div class="section-head split">
+          <div>
+            <span class="pill-tag">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c.5 5.2 2.8 7.5 10 10-7.2 2.5-9.5 4.8-10 10-.5-5.2-2.8-7.5-10-10 7.2-2.5 9.5-4.8 10-10z" /></svg>
+              Kategori grosir
+            </span>
+            <h2>
+              Pilih kategori grosir sesuai <span class="hl">pasar kamu.</span>
+            </h2>
+          </div>
           <p>
             Klik kategori untuk lihat daftar lengkap produk dan harganya di
             halaman Produk.
           </p>
         </div>
+
         <div class="cat-grid">
-          <a href="produk.html#pria" class="cat-card"
-            ><div class="cat-icon i-game">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path
-                  d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"
-                ></path>
-              </svg>
+          <a href="produk.html#pria" class="cat-card c-lime cat-wide">
+            <div class="cat-body">
+              <span class="cat-num">01</span>
+              <h3>Pakaian Pria</h3>
+              <p>
+                Kaos, kemeja, dan celana untuk stok toko atau dijual lagi —
+                model basic sampai kekinian.
+              </p>
+              <span class="cat-link"
+                >Lihat produk
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg
+              ></span>
             </div>
-            <h3>Pakaian Pria</h3>
-            <p>
-              Kaos, kemeja, dan celana untuk stok toko atau dijual lagi — model
-              basic sampai kekinian.
-            </p>
-            <span class="cat-link"
-              >Lihat produk
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.4"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline></svg></span></a
-          ><a href="produk.html#wanita" class="cat-card"
-            ><div class="cat-icon i-voucher">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path
-                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
-                ></path>
-              </svg>
+            <div class="cat-photo">
+              <img src="images/kemeja-flanel.jpg" alt="Tumpukan kemeja flanel pria" loading="lazy" />
             </div>
-            <h3>Pakaian Wanita</h3>
-            <p>
-              Atasan, gamis, dress, dan bawahan — pilihan favorit pembeli
-              online.
-            </p>
-            <span class="cat-link"
-              >Lihat produk
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.4"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline></svg></span></a
-          ><a href="produk.html#paket" class="cat-card"
-            ><div class="cat-icon i-kasir">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path
-                  d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
-                ></path>
-              </svg>
+          </a>
+
+          <a href="produk.html#wanita" class="cat-card c-violet">
+            <div class="cat-body">
+              <span class="cat-num">02</span>
+              <h3>Pakaian Wanita</h3>
+              <p>
+                Atasan, gamis, dress, dan bawahan — pilihan favorit pembeli
+                online.
+              </p>
+              <span class="cat-link"
+                >Lihat produk
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg
+              ></span>
             </div>
-            <h3>Paket Reseller</h3>
-            <p>
-              Paket campur model siap jual, cocok untuk yang baru mulai kulakan.
-            </p>
-            <span class="cat-link"
-              >Lihat produk
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.4"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline></svg></span
-          ></a>
+            <div class="cat-photo">
+              <img src="images/dress-rayon.jpg" alt="Dress rayon wanita aneka warna di gantungan" loading="lazy" />
+            </div>
+          </a>
+
+          <a href="produk.html#sepatu" class="cat-card c-pink">
+            <div class="cat-body">
+              <span class="cat-num">03</span>
+              <h3>Sepatu</h3>
+              <p>
+                Sepatu branded pria &amp; wanita — Nike, Adidas, Vans, Converse,
+                dan lainnya.
+              </p>
+              <span class="cat-link"
+                >Lihat produk
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg
+              ></span>
+            </div>
+            <div class="cat-photo">
+              <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=600&q=80" alt="Sepatu sneakers kanvas" loading="lazy" onerror="this.style.display='none'" />
+            </div>
+          </a>
+
+          <a href="produk.html#paket" class="cat-card c-yellow cat-wide">
+            <div class="cat-body">
+              <span class="cat-num">04</span>
+              <h3>Paket Reseller</h3>
+              <p>
+                Paket campur model siap jual, cocok untuk yang baru mulai
+                kulakan.
+              </p>
+              <span class="cat-link"
+                >Lihat produk
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg
+              ></span>
+            </div>
+            <div class="cat-photo">
+              <img src="images/100-pcs-campur-model.jpg" alt="Tumpukan bal pakaian campur model" loading="lazy" />
+            </div>
+          </a>
         </div>
       </div>
     </section>
 
-    <!-- ========================================================= -->
-    <!-- SHOWCASE SEPATU BRANDED                                   -->
-    <!-- ========================================================= -->
-    <style>
-      .shoes-section {
-        background: var(--bg-alt);
-        position: relative;
-        overflow: hidden;
-      }
-      .shoes-head {
-        display: flex;
-        align-items: flex-end;
-        justify-content: space-between;
-        gap: 24px;
-        flex-wrap: wrap;
-        margin-bottom: 40px;
-      }
-      .shoes-head .section-head {
-        margin-bottom: 0;
-        max-width: 560px;
-      }
-      .shoes-head .btn {
-        flex-shrink: 0;
-      }
-
-      .shoes-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 20px;
-      }
-      @media (max-width: 980px) {
-        .shoes-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-      }
-      @media (max-width: 520px) {
-        .shoes-grid {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      .shoe-card {
-        background: var(--surface);
-        border: 1px solid var(--border);
-        border-radius: var(--radius-m);
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        transition:
-          transform 0.22s ease,
-          box-shadow 0.22s ease,
-          border-color 0.22s ease;
-      }
-      .shoe-card:hover {
-        transform: translateY(-5px);
-        box-shadow: var(--shadow-md);
-        border-color: transparent;
-      }
-      .shoe-photo {
-        position: relative;
-        aspect-ratio: 1 / 1;
-        /* Fallback gradient kalau gambar gagal load */
-        background: linear-gradient(135deg, #eeecfd 0%, #e1f8f1 100%);
-        overflow: hidden;
-      }
-      .shoe-photo img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-        background: transparent;
-        transition: transform 0.5s ease;
-      }
-      .shoe-card:hover .shoe-photo img {
-        transform: scale(1.07);
-      }
-      .shoe-tag {
-        position: absolute;
-        top: 12px;
-        left: 12px;
-        background: rgba(22, 22, 43, 0.85);
-        color: #fff;
-        font-size: 0.72rem;
-        font-weight: 700;
-        padding: 5px 10px;
-        border-radius: 999px;
-        letter-spacing: 0.03em;
-        backdrop-filter: blur(4px);
-        z-index: 2;
-      }
-      .shoe-tag.nike {
-        background: rgba(22, 22, 43, 0.92);
-      }
-      .shoe-tag.adidas {
-        background: rgba(0, 90, 156, 0.92);
-      }
-      .shoe-tag.macbeth {
-        background: rgba(120, 30, 30, 0.92);
-      }
-      .shoe-tag.vans {
-        background: rgba(180, 30, 30, 0.92);
-      }
-      .shoe-tag.converse {
-        background: rgba(30, 30, 30, 0.92);
-      }
-      .shoe-tag.nb {
-        background: rgba(200, 40, 40, 0.92);
-      }
-      .shoe-tag.puma {
-        background: rgba(30, 60, 120, 0.92);
-      }
-      .shoe-tag.wanita {
-        background: rgba(255, 107, 53, 0.92);
-      }
-
-      .shoe-body {
-        padding: 18px 20px 20px;
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-      }
-      .shoe-body h3 {
-        font-size: 1rem;
-        margin: 0 0 6px;
-      }
-      .shoe-body p {
-        font-size: 0.86rem;
-        color: var(--ink-faint);
-        margin: 0 0 14px;
-        flex: 1;
-      }
-      .shoe-price {
-        font-family: "Sora", sans-serif;
-        font-weight: 700;
-        font-size: 0.98rem;
-        color: var(--ink);
-        margin-bottom: 14px;
-      }
-      .shoe-body .btn {
-        font-size: 0.88rem;
-        padding: 11px 18px;
-      }
-
-      .shoes-foot {
-        margin-top: 36px;
-        text-align: center;
-      }
-      .shoes-foot .btn {
-        gap: 10px;
-      }
-    </style>
-
-    <section class="shoes-section">
+    <!-- ===================== SHOWCASE SEPATU (bento + featured) ===================== -->
+    <section class="shoes-section section-round">
       <div class="container">
         <div class="shoes-head">
           <div class="section-head">
             <span class="pill-tag">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.4"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M2 16h20v4H2z"></path>
-                <path d="M4 16V8a2 2 0 0 1 2-2h4l2 3h6a2 2 0 0 1 2 2v5"></path>
-              </svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 16h20v4H2z"></path><path d="M4 16V8a2 2 0 0 1 2-2h4l2 3h6a2 2 0 0 1 2 2v5"></path></svg>
               Kategori baru
             </span>
             <h2>Sepatu branded, siap jual.</h2>
+          </div>
+          <div class="shoes-head-side">
             <p>
               Model Nike, Adidas, Macbeth, Vans, Converse, dan lainnya — harga
               grosir. Cocok untuk stok toko offline maupun lapak online.
             </p>
+            <a href="produk.html#sepatu" class="btn btn-primary">
+              Lihat Semua Sepatu
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
           </div>
-          <a href="produk.html#sepatu" class="btn btn-primary">
-            Lihat Semua Sepatu
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2.4"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              width="18"
-              height="18"
-            >
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
-          </a>
         </div>
 
         <div class="shoes-grid">
-          <!-- Nike Air Force 1 -->
-          <article class="shoe-card">
+          <!-- Nike Air Force 1 (unggulan) -->
+          <article class="shoe-card featured">
             <div class="shoe-photo">
               <span class="shoe-tag nike">Nike</span>
-              <img
-                src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=600&q=80"
-                alt="Nike Air Force 1"
-                loading="lazy"
-                onerror="this.style.display='none'"
-              />
+              <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=900&q=80" alt="Nike Air Force 1" loading="lazy" onerror="this.style.display='none'" />
             </div>
             <div class="shoe-body">
               <h3>Nike Air Force 1</h3>
               <p>Sol tebal, klasik · size 39–44</p>
               <div class="shoe-price">Mulai dari Rp 2.500.000</div>
-              <a href="#" data-wa-general class="btn btn-accent btn-block"
-                >Tanya Stok</a
-              >
+              <a href="#" data-wa-general class="btn btn-accent btn-block">Tanya Stok</a>
             </div>
           </article>
 
@@ -662,20 +310,13 @@
           <article class="shoe-card">
             <div class="shoe-photo">
               <span class="shoe-tag adidas">Adidas</span>
-              <img
-                src="https://images.unsplash.com/photo-1587563871167-1ee9c731aefb?auto=format&fit=crop&w=600&q=80"
-                alt="Adidas Ultraboost"
-                loading="lazy"
-                onerror="this.style.display='none'"
-              />
+              <img src="https://images.unsplash.com/photo-1587563871167-1ee9c731aefb?auto=format&fit=crop&w=600&q=80" alt="Adidas Ultraboost" loading="lazy" onerror="this.style.display='none'" />
             </div>
             <div class="shoe-body">
               <h3>Adidas Ultraboost</h3>
               <p>Bahan knit, empuk · size 39–44</p>
               <div class="shoe-price">Mulai dari Rp 2.500.000</div>
-              <a href="#" data-wa-general class="btn btn-accent btn-block"
-                >Tanya Stok</a
-              >
+              <a href="#" data-wa-general class="btn btn-accent btn-block">Tanya Stok</a>
             </div>
           </article>
 
@@ -683,20 +324,13 @@
           <article class="shoe-card">
             <div class="shoe-photo">
               <span class="shoe-tag macbeth">Macbeth</span>
-              <img
-                src="https://images.unsplash.com/photo-1600269452121-4f2416e55c28?auto=format&fit=crop&w=600&q=80"
-                alt="Macbeth Brighton"
-                loading="lazy"
-                onerror="this.style.display='none'"
-              />
+              <img src="https://images.unsplash.com/photo-1600269452121-4f2416e55c28?auto=format&fit=crop&w=600&q=80" alt="Macbeth Brighton" loading="lazy" onerror="this.style.display='none'" />
             </div>
             <div class="shoe-body">
               <h3>Macbeth Brighton</h3>
               <p>Kanvas tebal, casual · size 39–44</p>
               <div class="shoe-price">Mulai dari Rp 2.500.000</div>
-              <a href="#" data-wa-general class="btn btn-accent btn-block"
-                >Tanya Stok</a
-              >
+              <a href="#" data-wa-general class="btn btn-accent btn-block">Tanya Stok</a>
             </div>
           </article>
 
@@ -704,20 +338,13 @@
           <article class="shoe-card">
             <div class="shoe-photo">
               <span class="shoe-tag vans">Vans</span>
-              <img
-                src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=600&q=80"
-                alt="Vans Old Skool"
-                loading="lazy"
-                onerror="this.style.display='none'"
-              />
+              <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=600&q=80" alt="Vans Old Skool" loading="lazy" onerror="this.style.display='none'" />
             </div>
             <div class="shoe-body">
               <h3>Vans Old Skool</h3>
               <p>Kanvas + suede · size 39–44</p>
               <div class="shoe-price">Mulai dari Rp 2.500.000</div>
-              <a href="#" data-wa-general class="btn btn-accent btn-block"
-                >Tanya Stok</a
-              >
+              <a href="#" data-wa-general class="btn btn-accent btn-block">Tanya Stok</a>
             </div>
           </article>
 
@@ -725,20 +352,13 @@
           <article class="shoe-card">
             <div class="shoe-photo">
               <span class="shoe-tag converse">Converse</span>
-              <img
-                src="https://images.unsplash.com/photo-1607522370275-f14206abe5d3?auto=format&fit=crop&w=600&q=80"
-                alt="Converse Chuck Taylor"
-                loading="lazy"
-                onerror="this.style.display='none'"
-              />
+              <img src="https://images.unsplash.com/photo-1607522370275-f14206abe5d3?auto=format&fit=crop&w=600&q=80" alt="Converse Chuck Taylor" loading="lazy" onerror="this.style.display='none'" />
             </div>
             <div class="shoe-body">
               <h3>Converse Chuck Taylor</h3>
               <p>High top klasik · size 39–44</p>
               <div class="shoe-price">Mulai dari Rp 2.500.000</div>
-              <a href="#" data-wa-general class="btn btn-accent btn-block"
-                >Tanya Stok</a
-              >
+              <a href="#" data-wa-general class="btn btn-accent btn-block">Tanya Stok</a>
             </div>
           </article>
 
@@ -746,20 +366,13 @@
           <article class="shoe-card">
             <div class="shoe-photo">
               <span class="shoe-tag nb">New Balance</span>
-              <img
-                src="https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&w=600&q=80"
-                alt="New Balance 574"
-                loading="lazy"
-                onerror="this.style.display='none'"
-              />
+              <img src="https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&w=600&q=80" alt="New Balance 574" loading="lazy" onerror="this.style.display='none'" />
             </div>
             <div class="shoe-body">
               <h3>New Balance 574</h3>
               <p>Suede + mesh · size 39–44</p>
               <div class="shoe-price">Mulai dari Rp 2.500.000</div>
-              <a href="#" data-wa-general class="btn btn-accent btn-block"
-                >Tanya Stok</a
-              >
+              <a href="#" data-wa-general class="btn btn-accent btn-block">Tanya Stok</a>
             </div>
           </article>
 
@@ -767,20 +380,13 @@
           <article class="shoe-card">
             <div class="shoe-photo">
               <span class="shoe-tag puma">Puma</span>
-              <img
-                src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=600&q=80"
-                alt="Puma Suede Classic"
-                loading="lazy"
-                onerror="this.style.display='none'"
-              />
+              <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=600&q=80" alt="Puma Suede Classic" loading="lazy" onerror="this.style.display='none'" />
             </div>
             <div class="shoe-body">
               <h3>Puma Suede Classic</h3>
               <p>Suede premium · size 39–44</p>
               <div class="shoe-price">Mulai dari Rp 2.500.000</div>
-              <a href="#" data-wa-general class="btn btn-accent btn-block"
-                >Tanya Stok</a
-              >
+              <a href="#" data-wa-general class="btn btn-accent btn-block">Tanya Stok</a>
             </div>
           </article>
 
@@ -788,67 +394,100 @@
           <article class="shoe-card">
             <div class="shoe-photo">
               <span class="shoe-tag wanita">Wanita</span>
-              <img
-                src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=600&q=80"
-                alt="Adidas Superstar Wanita"
-                loading="lazy"
-                onerror="this.style.display='none'"
-              />
+              <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=600&q=80" alt="Adidas Superstar Wanita" loading="lazy" onerror="this.style.display='none'" />
             </div>
             <div class="shoe-body">
               <h3>Adidas Superstar Wanita</h3>
               <p>Shell toe klasik · size 36–40</p>
               <div class="shoe-price">Mulai dari Rp 2.500.000</div>
-              <a href="#" data-wa-general class="btn btn-accent btn-block"
-                >Tanya Stok</a
-              >
+              <a href="#" data-wa-general class="btn btn-accent btn-block">Tanya Stok</a>
             </div>
           </article>
-        </div>
 
-        <div class="shoes-foot">
-          <a href="produk.html#sepatu" class="btn btn-ghost">
-            Lihat katalog sepatu lengkap
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2.4"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
+          <!-- Tile ajakan: katalog lengkap -->
+          <a href="produk.html#sepatu" class="shoe-cta">
+            <span class="tile-label">Katalog lengkap</span>
+            <strong>Lihat katalog sepatu lengkap</strong>
+            <span class="shoe-cta-note">Sneakers pria &amp; wanita, flat shoes, sampai heels.</span>
+            <span class="shoe-cta-arrow">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </span>
           </a>
         </div>
       </div>
     </section>
 
-    <!-- KENAPA PILIH KAMI -->
-    <section>
+    <!-- ===================== CARA ORDER ===================== -->
+    <section class="steps-section">
       <div class="container">
-        <div class="section-head">
-          <h2>Kenapa pelanggan balik lagi ke Bagina.</h2>
+        <div class="section-head split">
+          <div>
+            <span class="pill-tag">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c.5 5.2 2.8 7.5 10 10-7.2 2.5-9.5 4.8-10 10-.5-5.2-2.8-7.5-10-10 7.2-2.5 9.5-4.8 10-10z" /></svg>
+              Cara order
+            </span>
+            <h2>Pesan grosir cuma <span class="hl">3 langkah.</span></h2>
+          </div>
+          <p>
+            Nggak perlu bikin akun. Semua transaksi diproses manual oleh admin
+            lewat WhatsApp.
+          </p>
+        </div>
+
+        <ol class="steps">
+          <li class="step">
+            <span class="step-num">1</span>
+            <h4>Pilih produk</h4>
+            <p>
+              Lihat katalog di halaman <a href="produk.html">Produk</a>, lalu
+              tambahkan ke keranjang atau langsung klik pesan.
+            </p>
+          </li>
+          <li class="step">
+            <span class="step-num">2</span>
+            <h4>Chat admin di WhatsApp</h4>
+            <p>
+              Pesan otomatis terisi. Admin konfirmasi stok, total harga, dan
+              ongkos kirim.
+            </p>
+          </li>
+          <li class="step">
+            <span class="step-num">3</span>
+            <h4>Bayar &amp; barang dikirim</h4>
+            <p>
+              Transfer, kirim bukti, lalu pantau prosesnya di halaman
+              <a href="cek-pembayaran.html">Cek Pembayaran</a>.
+            </p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===================== KENAPA PILIH KAMI (sticky split) ===================== -->
+    <section class="why-section">
+      <div class="container why-grid">
+        <div class="why-intro">
+          <span class="pill-tag">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c.5 5.2 2.8 7.5 10 10-7.2 2.5-9.5 4.8-10 10-.5-5.2-2.8-7.5-10-10 7.2-2.5 9.5-4.8 10-10z" /></svg>
+            Kenapa Bagina
+          </span>
+          <h2>
+            Kenapa pelanggan <span class="hl">balik lagi</span> ke Bagina.
+          </h2>
           <p>
             Bukan cuma soal harga — tapi juga soal dipercaya tiap kali
             transaksi.
           </p>
+          <a href="#" data-wa-general class="btn btn-primary">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.87 9.87 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2z" /></svg>
+            Tanya Admin
+          </a>
         </div>
+
         <div class="feature-grid">
           <div class="feature-item">
             <div class="feature-icon">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <circle cx="12" cy="12" r="10"></circle>
-                <polyline points="12 6 12 12 16 14"></polyline>
-              </svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
             </div>
             <h4>Stok ready, cepat dikirim</h4>
             <p>
@@ -858,16 +497,7 @@
           </div>
           <div class="feature-item">
             <div class="feature-icon">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M12 2 3 7v6c0 5 4 8 9 9 5-1 9-4 9-9V7z"></path>
-              </svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 3 7v6c0 5 4 8 9 9 5-1 9-4 9-9V7z"></path></svg>
             </div>
             <h4>Barang dicek dulu</h4>
             <p>
@@ -877,18 +507,7 @@
           </div>
           <div class="feature-item">
             <div class="feature-icon">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path
-                  d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
-                ></path>
-              </svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
             </div>
             <h4>Chat manusia beneran</h4>
             <p>
@@ -898,17 +517,7 @@
           </div>
           <div class="feature-item">
             <div class="feature-icon">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <rect x="3" y="9" width="18" height="12" rx="2"></rect>
-                <path d="M7 9V6a5 5 0 0 1 10 0v3"></path>
-              </svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="12" rx="2"></rect><path d="M7 9V6a5 5 0 0 1 10 0v3"></path></svg>
             </div>
             <h4>Makin banyak, makin murah</h4>
             <p>
@@ -920,29 +529,32 @@
       </div>
     </section>
 
-    <!-- TESTIMONI CAROUSEL -->
-    <section class="carousel-section">
-      <div class="container">
-        <div
-          class="section-head"
-          style="margin-left: auto; margin-right: auto; text-align: center"
-        >
-          <h2>Kata mereka yang sudah coba.</h2>
-          <p style="margin-left: auto; margin-right: auto">
-            Cerita singkat dari pelanggan yang rutin transaksi di Bagina.
-          </p>
+    <!-- ===================== TESTIMONI (split) ===================== -->
+    <section class="carousel-section section-round">
+      <div class="container testi-grid">
+        <div class="testi-intro">
+          <span class="pill-tag">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c.5 5.2 2.8 7.5 10 10-7.2 2.5-9.5 4.8-10 10-.5-5.2-2.8-7.5-10-10 7.2-2.5 9.5-4.8 10-10z" /></svg>
+            Testimoni
+          </span>
+          <h2>Kata mereka yang <span class="hl">sudah coba.</span></h2>
+          <p>Cerita singkat dari pelanggan yang rutin transaksi di Bagina.</p>
+          <div class="carousel-controls">
+            <button class="carousel-arrow prev" aria-label="Sebelumnya">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <div class="carousel-dots"></div>
+            <button class="carousel-arrow next" aria-label="Berikutnya">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
         </div>
 
         <div class="carousel">
           <div class="carousel-track">
             <div class="carousel-slide active">
               <div class="testi-card">
-                <img
-                  class="testi-avatar"
-                  src="https://images.pexels.com/photos/32299981/pexels-photo-32299981.jpeg?auto=compress&cs=tinysrgb&w=160&h=160&fit=crop"
-                  alt="Raka Pratama"
-                  loading="lazy"
-                />
+                <img class="testi-avatar" src="https://images.pexels.com/photos/32299981/pexels-photo-32299981.jpeg?auto=compress&cs=tinysrgb&w=160&h=160&fit=crop" alt="Raka Pratama" loading="lazy" />
                 <p class="testi-quote">
                   "Awalnya cuma kulakan 1 lusin. Admin bantu pilihkan model yang
                   laku, sekarang repeat order tiap minggu."
@@ -952,12 +564,7 @@
             </div>
             <div class="carousel-slide">
               <div class="testi-card">
-                <img
-                  class="testi-avatar"
-                  src="https://images.pexels.com/photos/33864807/pexels-photo-33864807.jpeg?auto=compress&cs=tinysrgb&w=160&h=160&fit=crop"
-                  alt="Ibu Sri Wahyuni"
-                  loading="lazy"
-                />
+                <img class="testi-avatar" src="https://images.pexels.com/photos/33864807/pexels-photo-33864807.jpeg?auto=compress&cs=tinysrgb&w=160&h=160&fit=crop" alt="Ibu Sri Wahyuni" loading="lazy" />
                 <p class="testi-quote">
                   "Kaos dan gamisnya sesuai foto, bahan adem, margin untuk lapak
                   online saya enak."
@@ -967,12 +574,7 @@
             </div>
             <div class="carousel-slide">
               <div class="testi-card">
-                <img
-                  class="testi-avatar"
-                  src="https://images.pexels.com/photos/36629227/pexels-photo-36629227.jpeg?auto=compress&cs=tinysrgb&w=160&h=160&fit=crop"
-                  alt="Evann"
-                  loading="lazy"
-                />
+                <img class="testi-avatar" src="https://images.pexels.com/photos/36629227/pexels-photo-36629227.jpeg?auto=compress&cs=tinysrgb&w=160&h=160&fit=crop" alt="Evann" loading="lazy" />
                 <p class="testi-quote">
                   "Order 3 lusin campur ukuran, dikemas rapi, dan admin sabar
                   waktu saya ganti model."
@@ -981,56 +583,30 @@
               </div>
             </div>
           </div>
-          <div class="carousel-controls">
-            <button class="carousel-arrow prev" aria-label="Sebelumnya">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.4"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <polyline points="15 18 9 12 15 6"></polyline>
-              </svg>
-            </button>
-            <div class="carousel-dots"></div>
-            <button class="carousel-arrow next" aria-label="Berikutnya">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.4"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <polyline points="9 18 15 12 9 6"></polyline>
-              </svg>
-            </button>
-          </div>
         </div>
       </div>
     </section>
 
-    <!-- CTA -->
+    <!-- ===================== CTA (kolase foto) ===================== -->
     <section>
       <div class="container">
-        <div class="cta-banner">
-          <div>
+        <div class="cta-banner has-collage">
+          <div class="cta-copy">
             <h2>Siap kulakan baju grosir hari ini?</h2>
             <p>
               Chat admin, minta katalog dan daftar harga terbaru — kami bantu
               pilihkan modelnya.
             </p>
+            <a href="#" data-wa-general class="btn btn-accent">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.87 9.87 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2z" /></svg>
+              Chat Sekarang
+            </a>
           </div>
-          <a href="#" data-wa-general class="btn btn-accent">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path
-                d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.87 9.87 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2z"
-              />
-            </svg>
-            Chat Sekarang
-          </a>
+          <div class="cta-collage" aria-hidden="true">
+            <img class="c1" src="images/kaos-polos-cotton-combed-30s.jpg" alt="" loading="lazy" />
+            <img class="c2" src="images/gamis-polos.jpg" alt="" loading="lazy" />
+            <img class="c3" src="images/polo-shirt.jpg" alt="" loading="lazy" />
+          </div>
         </div>
       </div>
     </section>
@@ -1046,6 +622,14 @@
               Grosir pakaian pria &amp; wanita — tanya stok, nego harga, dan
               pesan lewat chat WhatsApp langsung.
             </p>
+            <a href="#" data-wa-general class="btn btn-accent btn-sm">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.87 9.87 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2z"
+                />
+              </svg>
+              Chat Admin
+            </a>
           </div>
           <div class="footer-cols">
             <div class="footer-col">
@@ -1069,6 +653,7 @@
             </div>
           </div>
         </div>
+        <div class="footer-wordmark" aria-hidden="true">Bagina</div>
         <div class="footer-bottom">
           <span
             >© 2026 PT. BAHANA GITA NIRWANA — Bagina. Semua transaksi diproses
